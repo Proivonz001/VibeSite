@@ -14,15 +14,18 @@
   <rect width="1280" height="720" fill="url(#grid)"/>
 
   <!-- Circuit outline (closed loop) with car dots -->
-  <g transform="translate(560 40)">
-    <path id="circuit" d="M60 300 C 40 200, 120 150, 200 160 S 330 120, 420 80 S 620 60, 640 140 S 560 250, 480 260 S 400 330, 420 400 S 300 470, 220 430 S 80 400, 60 300 Z" fill="none" stroke="#2b2f3d" stroke-width="22" stroke-linejoin="round"/>
+  <g transform="translate(560 40)" fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <defs>
+      <path id="circuit" pathLength="300" d="M60 300 C 40 200, 120 150, 200 160 S 330 120, 420 80 S 620 60, 640 140 S 560 250, 480 260 S 400 330, 420 400 S 300 470, 220 430 S 80 400, 60 300 Z"/>
+    </defs>
+    <use href="#circuit" stroke="#2b2f3d" stroke-width="22"/>
     <use href="#circuit" stroke="#3a3f52" stroke-width="16"/>
-    <!-- sector colours -->
-    <path d="M60 300 C 40 200, 120 150, 200 160 S 330 120, 420 80" fill="none" stroke="#a855f7" stroke-width="4" stroke-opacity="0.9"/>
-    <path d="M420 80 S 620 60, 640 140 S 560 250, 480 260" fill="none" stroke="#22c55e" stroke-width="4" stroke-opacity="0.9"/>
-    <path d="M480 260 S 400 330, 420 400 S 300 470, 220 430 S 80 400, 60 300" fill="none" stroke="#facc15" stroke-width="4" stroke-opacity="0.9"/>
+    <!-- sector colours: dashes of the same path, so they cannot leave the asphalt -->
+    <use href="#circuit" stroke="#a855f7" stroke-width="4" stroke-opacity="0.9" stroke-dasharray="100 200" stroke-dashoffset="0"/>
+    <use href="#circuit" stroke="#22c55e" stroke-width="4" stroke-opacity="0.9" stroke-dasharray="100 200" stroke-dashoffset="-100"/>
+    <use href="#circuit" stroke="#facc15" stroke-width="4" stroke-opacity="0.9" stroke-dasharray="100 200" stroke-dashoffset="-200"/>
     <!-- DRS zone -->
-    <path d="M200 160 S 330 120, 420 80" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" opacity="0.5"/>
+    <use href="#circuit" stroke="#ffffff" stroke-width="2" stroke-dasharray="4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 260" stroke-dashoffset="-40" opacity="0.5"/>
     <!-- start/finish -->
     <rect x="52" y="292" width="16" height="16" fill="#ffffff"/><rect x="52" y="292" width="8" height="8" fill="#111"/><rect x="60" y="300" width="8" height="8" fill="#111"/>
     <!-- cars -->

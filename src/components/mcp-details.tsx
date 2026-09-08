@@ -10,14 +10,14 @@ export function ToolList({ tools, d }: { tools: ProjectMeta["tools"]; d: Diction
     <section className="mt-10">
       <h2 className="mb-4 text-xl font-semibold tracking-tight">{d.mcp.tools}</h2>
       <div className="overflow-hidden rounded-xl border border-border">
-        <table className="w-full text-sm">
+        <table className="w-full table-fixed text-sm">
           <tbody>
             {tools.map((t) => (
               <tr key={t.name} className="border-b border-border last:border-0">
-                <td className="whitespace-nowrap bg-muted/50 px-4 py-2 align-top font-mono text-xs">
+                <td className="w-[38%] break-words bg-muted/50 px-4 py-2 align-top font-mono text-xs">
                   {t.name}
                 </td>
-                <td className="px-4 py-2 text-muted-foreground">{t.description}</td>
+                <td className="w-[62%] px-4 py-2 align-top text-muted-foreground">{t.description}</td>
               </tr>
             ))}
           </tbody>
