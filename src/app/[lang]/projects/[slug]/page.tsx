@@ -7,6 +7,7 @@ import { Container } from "@/components/container";
 import { GitHubIcon } from "@/components/icons";
 import { GitHubStats } from "@/components/github-stats";
 import { Markdown } from "@/components/markdown";
+import { ScreenshotGallery } from "@/components/screenshot-gallery";
 import { statusLabel } from "@/components/project-card";
 import { Tag } from "@/components/tag";
 import { enabledLocales, localePath } from "@/i18n/config";
@@ -123,6 +124,8 @@ export default async function ProjectPage({
           <div className="mt-10">
             <Markdown source={body} />
           </div>
+
+          <ScreenshotGallery items={meta.screenshots ?? []} title={d.projects.screenshots} />
         </div>
 
         <aside className="space-y-6 lg:pt-2">

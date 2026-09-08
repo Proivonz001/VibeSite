@@ -37,7 +37,8 @@
       "beta": "Beta",
       "wip": "In progress",
       "prototype": "Prototype"
-    }
+    },
+    "screenshots": "Screenshots"
   },
   "github": {
     "stars": "Stars",

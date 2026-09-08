@@ -6,7 +6,12 @@ tags: [game, f1, strategy, simulation]
 repo: Proivonz001/EFFUAN
 status: beta
 engine: Godot 4
-cover: /images/projects/effuan.svg
+cover: /images/projects/effuan-race.png
+screenshots:
+  - src: /images/projects/effuan-hub.png
+    caption: Team hub between rounds, with standings, next race and the R&D shop.
+  - src: /images/projects/effuan-setup.png
+    caption: Pre-race setup, with car balance and per-driver tyre and fuel commitments.
 play: /games/effuan/index.html
 featured: true
 ---

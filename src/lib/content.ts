@@ -8,6 +8,8 @@ const CONTENT_ROOT = path.join(process.cwd(), "content");
 
 export type ProjectStatus = "released" | "beta" | "wip" | "prototype";
 
+export type Screenshot = { src: string; caption?: string };
+
 export type ProjectMeta = {
   slug: string;
   title: string;
@@ -20,6 +22,8 @@ export type ProjectMeta = {
   status: ProjectStatus;
   /** Path to a cover image under /public. */
   cover?: string;
+  /** Extra images shown as a gallery on the project page. */
+  screenshots?: Screenshot[];
   /** Public path of a playable web build (e.g. /games/effuan/index.html). */
   play?: string;
   /** External live demo URL. */
