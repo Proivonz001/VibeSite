@@ -3,7 +3,7 @@
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
       <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.045"/>
     </pattern>
-    <radialGradient id="glow" cx="0.72" cy="0.3" r="0.6">
+    <radialGradient id="glow" cx="0.85" cy="0.2" r="0.6">
       <stop offset="0" stop-color="#e10600" stop-opacity="0.22"/>
       <stop offset="1" stop-color="#e10600" stop-opacity="0"/>
     </radialGradient>
@@ -52,32 +52,32 @@
   <rect width="1280" height="720" fill="url(#glow)"/>
 
   <!-- Big faint tyre and soft compound ring, top right. -->
-  <g transform="translate(900 40) scale(5.2)" opacity="0.55">
+  <g transform="translate(960 400) scale(5.2)" opacity="0.35">
     <use href="#tyre"/>
     <circle cx="32" cy="32" r="25.5" fill="none" stroke="#e10600" stroke-width="2.2" stroke-dasharray="120 40" opacity="0.9"/>
   </g>
 
   <!-- Track: kerbs, asphalt, racing line. -->
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path id="track" d="M -60 640 C 260 640 300 300 560 300 S 900 470 1120 300 S 1400 60 1500 120"/>
+    <path id="track" d="M -80 780 C 240 780 300 330 560 330 S 900 520 1120 330 S 1380 110 1500 60"/>
     <use href="#track" stroke="#f4f4f4" stroke-width="96"/>
     <use href="#track" stroke="#e10600" stroke-width="96" stroke-dasharray="26 26"/>
     <use href="#track" stroke="#2a2d36" stroke-width="80"/>
     <use href="#track" stroke="#3a3d47" stroke-width="80" stroke-dasharray="1 999" opacity="0"/>
     <use href="#track" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="14 18" opacity="0.18"/>
     <!-- DRS zone marker -->
-    <path d="M 640 336 L 900 452" stroke="#22c55e" stroke-width="3" stroke-dasharray="10 10" opacity="0.55"/>
+    <path d="M 560 300 S 900 470 1120 300" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="12 10" opacity="0.5"/>
   </g>
 
   <!-- Cars (each 64x30 sprite, scaled 2.4x). -->
-  <g transform="translate(300 555) rotate(-46) scale(2.4) translate(-32 -15)" color="#ffd200"><use href="#car"/></g>
-  <g transform="translate(455 372) rotate(-38) scale(2.4) translate(-32 -15)" color="#1e90ff"><use href="#car"/></g>
-  <g transform="translate(600 306) rotate(6) scale(2.4) translate(-32 -15)" color="#e10600"><use href="#car"/></g>
-  <g transform="translate(790 396) rotate(30) scale(2.4) translate(-32 -15)" color="#00c2a8"><use href="#car"/></g>
-  <g transform="translate(1020 372) rotate(-32) scale(2.4) translate(-32 -15)" color="#ff7a00"><use href="#car"/></g>
+  <g transform="translate(287 435) rotate(-46) scale(2.4) translate(-32 -15)" color="#ffd200"><use href="#car"/></g>
+  <g transform="translate(444 342) rotate(-27) scale(2.4) translate(-32 -15)" color="#1e90ff"><use href="#car"/></g>
+  <g transform="translate(758 319) rotate(17) scale(2.4) translate(-32 -15)" color="#e10600"><use href="#car"/></g>
+  <g transform="translate(911 388) rotate(5) scale(2.4) translate(-32 -15)" color="#00c2a8"><use href="#car"/></g>
+  <g transform="translate(1293 148) rotate(-36) scale(2.4) translate(-32 -15)" color="#ff7a00"><use href="#car"/></g>
 
   <!-- Timing tower fragment. -->
-  <g transform="translate(60 56)" font-family="Titillium Web, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#cfd2da">
+  <g transform="translate(1000 540)" font-family="Titillium Web, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#cfd2da">
     <rect x="-16" y="-20" width="240" height="140" rx="10" fill="#0e1015" stroke="#262a33"/>
     <text x="0" y="4" font-size="14" fill="#8a8f9c" letter-spacing="2">LAP 12 / 25</text>
     <g font-size="17">
@@ -88,13 +88,13 @@
   </g>
 
   <!-- Weather -->
-  <g transform="translate(1180 620)" opacity="0.7"><use href="#sun" transform="scale(1.2)"/></g>
-  <text x="1120" y="690" font-family="Titillium Web, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8a8f9c" text-anchor="end" letter-spacing="1">DRY · TRACK 28°</text>
+  <g transform="translate(60 250)" opacity="0.7"><use href="#sun" transform="scale(1.2)"/></g>
+  <text x="130" y="288" font-family="Titillium Web, Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#8a8f9c" letter-spacing="1">DRY · TRACK 28°</text>
 
   <!-- Title -->
   <g font-family="Titillium Web, Segoe UI, Helvetica, Arial, sans-serif">
-    <text x="60" y="640" font-size="132" font-weight="800" fill="#ffffff" letter-spacing="-3">EFFUAN</text>
-    <rect x="64" y="656" width="230" height="4" fill="#e10600"/>
-    <text x="64" y="690" font-size="22" fill="#b3b7c2" letter-spacing="4">MINIMALIST F1 MANAGEMENT</text>
+    <text x="60" y="170" font-size="132" font-weight="800" fill="#ffffff" letter-spacing="-3">EFFUAN</text>
+    <rect x="64" y="186" width="230" height="4" fill="#e10600"/>
+    <text x="64" y="220" font-size="22" fill="#b3b7c2" letter-spacing="4">MINIMALIST F1 MANAGEMENT</text>
   </g>
 </svg>

@@ -4,6 +4,7 @@ summary: An MCP server that puts your Directa brokerage account inside Claude. B
 date: 2026-09-04
 kind: mcp
 tags: [mcp, trading, finance, python]
+repo: Proivonz001/directa-mcp
 status: beta
 engine: Python
 cover: /images/projects/directa-mcp.svg
@@ -82,4 +83,4 @@ The protocol was reverse-checked against real traffic recorded from Darwin, and 
 
 ## Status
 
-Working and in daily use. The source will be published as open source once the personal configuration has been stripped out of the repository.
+Working and in daily use. Open source under the MIT license.
