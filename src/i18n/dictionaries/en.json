@@ -25,16 +25,33 @@
   },
   "projects": {
     "title": "Projects",
-    "intro": "Everything I have shipped so far, from browser games to developer tools. Each one links to its source on GitHub.",
+    "intro": "Everything I have shipped so far, from browser games to developer tools. Each one links to its source on GitHub when it is public.",
     "empty": "No projects published yet. Come back soon.",
     "viewSource": "Source on GitHub",
-    "playNow": "Play now",
-    "liveDemo": "Live demo"
+    "playNow": "Play in the browser",
+    "liveDemo": "Live demo",
+    "backToList": "All projects",
+    "published": "Published",
+    "status": {
+      "released": "Released",
+      "beta": "Beta",
+      "wip": "In progress",
+      "prototype": "Prototype"
+    }
+  },
+  "github": {
+    "stars": "Stars",
+    "forks": "Forks",
+    "language": "Language",
+    "license": "License",
+    "lastPush": "Last update",
+    "unavailable": "Live repository stats are not available right now."
   },
   "blog": {
     "title": "Blog",
     "intro": "Notes on building with AI: what worked, what did not, and what I learned along the way.",
-    "empty": "No posts yet. The first one is on its way."
+    "empty": "No posts yet. The first one is on its way.",
+    "backToList": "All posts"
   },
   "shop": {
     "title": "Shop",

@@ -2,12 +2,19 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/container";
 import { EmptyState } from "@/components/empty-state";
+import { PostCard } from "@/components/post-card";
+import { ProjectCard } from "@/components/project-card";
 import { localePath } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
+import { getPosts, getProjects } from "@/lib/content";
 
 export default async function HomePage() {
   const locale = await getLocale();
   const d = await getDictionary();
+  const [projects, posts] = await Promise.all([getProjects(locale), getPosts(locale)]);
+  const featured = projects.filter((p) => p.meta.featured);
+  const latestProjects = (featured.length > 0 ? featured : projects).slice(0, 3);
+  const latestPosts = posts.slice(0, 3);
 
   return (
     <Container>
@@ -36,34 +43,57 @@ export default async function HomePage() {
       </section>
 
       <section className="py-8">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            {d.home.latestProjects}
-          </h2>
-          <Link
-            href={localePath(locale, "/projects")}
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            {d.home.viewAll}
-          </Link>
-        </div>
-        <EmptyState message={d.projects.empty} />
+        <SectionHeading
+          title={d.home.latestProjects}
+          href={localePath(locale, "/projects")}
+          linkLabel={d.home.viewAll}
+        />
+        {latestProjects.length === 0 ? (
+          <EmptyState message={d.projects.empty} />
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {latestProjects.map((p) => (
+              <ProjectCard key={p.meta.slug} project={p.meta} locale={locale} d={d} />
+            ))}
+          </div>
+        )}
       </section>
 
       <section className="py-8">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            {d.home.latestPosts}
-          </h2>
-          <Link
-            href={localePath(locale, "/blog")}
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            {d.home.viewAll}
-          </Link>
-        </div>
-        <EmptyState message={d.blog.empty} />
+        <SectionHeading
+          title={d.home.latestPosts}
+          href={localePath(locale, "/blog")}
+          linkLabel={d.home.viewAll}
+        />
+        {latestPosts.length === 0 ? (
+          <EmptyState message={d.blog.empty} />
+        ) : (
+          <div className="max-w-2xl">
+            {latestPosts.map((p) => (
+              <PostCard key={p.meta.slug} post={p.meta} locale={locale} />
+            ))}
+          </div>
+        )}
       </section>
     </Container>
+  );
+}
+
+function SectionHeading({
+  title,
+  href,
+  linkLabel,
+}: {
+  title: string;
+  href: string;
+  linkLabel: string;
+}) {
+  return (
+    <div className="mb-6 flex items-center justify-between">
+      <h2 className="text-2xl font-semibold tracking-tight">{title}</h2>
+      <Link href={href} className="text-sm text-muted-foreground hover:text-foreground">
+        {linkLabel}
+      </Link>
+    </div>
   );
 }
