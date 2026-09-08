@@ -4,7 +4,6 @@ summary: Let Claude operate Siemens TIA Portal V21 through the Openness API. Des
 date: 2026-08-14
 kind: mcp
 tags: [mcp, plc, siemens, automation, csharp]
-repo: Proivonz001/tia-openness-engine
 status: beta
 engine: C# / .NET
 cover: /images/projects/tia-openness.svg

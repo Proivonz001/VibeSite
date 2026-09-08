@@ -17,17 +17,18 @@
   <path d="M60 520 L180 470 L300 500 L420 380 L540 410 L660 300 L780 340 L900 220 L1020 260 L1140 150 L1220 180 L1220 720 L60 720 Z" fill="url(#area)"/>
   <path d="M60 520 L180 470 L300 500 L420 380 L540 410 L660 300 L780 340 L900 220 L1020 260 L1140 150 L1220 180" fill="none" stroke="#22c55e" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
 
-  <!-- Candles -->
+  <!-- Candles: a zoomed-in detail of the series, in the empty area above the line's left leg -->
   <g stroke-width="3">
-    <g stroke="#ef4444" fill="#ef4444"><line x1="720" y1="380" x2="720" y2="470"/><rect x="708" y="400" width="24" height="50" rx="2"/></g>
-    <g stroke="#22c55e" fill="#22c55e"><line x1="780" y1="330" x2="780" y2="440"/><rect x="768" y="350" width="24" height="60" rx="2"/></g>
-    <g stroke="#22c55e" fill="#22c55e"><line x1="840" y1="290" x2="840" y2="400"/><rect x="828" y="310" width="24" height="70" rx="2"/></g>
-    <g stroke="#ef4444" fill="#ef4444"><line x1="900" y1="300" x2="900" y2="380"/><rect x="888" y="320" width="24" height="40" rx="2"/></g>
-    <g stroke="#22c55e" fill="#22c55e"><line x1="960" y1="230" x2="960" y2="360"/><rect x="948" y="250" width="24" height="80" rx="2"/></g>
+    <g stroke="#ef4444" fill="#ef4444"><line x1="140" y1="300" x2="140" y2="400"/><rect x="128" y="320" width="24" height="56" rx="2"/></g>
+    <g stroke="#22c55e" fill="#22c55e"><line x1="200" y1="270" x2="200" y2="380"/><rect x="188" y="290" width="24" height="64" rx="2"/></g>
+    <g stroke="#22c55e" fill="#22c55e"><line x1="260" y1="230" x2="260" y2="340"/><rect x="248" y="250" width="24" height="70" rx="2"/></g>
+    <g stroke="#ef4444" fill="#ef4444"><line x1="320" y1="240" x2="320" y2="330"/><rect x="308" y="262" width="24" height="46" rx="2"/></g>
+    <g stroke="#22c55e" fill="#22c55e"><line x1="380" y1="170" x2="380" y2="300"/><rect x="368" y="190" width="24" height="84" rx="2"/></g>
   </g>
+  <text x="140" y="440" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#7c8aa5" letter-spacing="2">ENI · 15m</text>
 
   <!-- Plug / MCP glyph -->
-  <g transform="translate(1040 60)" fill="none" stroke="#a5b4fc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+  <g transform="translate(1080 330)" fill="none" stroke="#a5b4fc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
     <path d="M40 40 v40 M100 40 v40"/>
     <path d="M20 80 h100 v20 a50 50 0 0 1 -100 0 z"/>
     <path d="M70 150 v40"/>

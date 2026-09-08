@@ -60,21 +60,21 @@
   <!-- Track: kerbs, asphalt, racing line. -->
   <g fill="none" stroke-linecap="round" stroke-linejoin="round">
     <path id="track" d="M -80 780 C 240 780 300 330 560 330 S 900 520 1120 330 S 1380 110 1500 60"/>
-    <use href="#track" stroke="#f4f4f4" stroke-width="96"/>
-    <use href="#track" stroke="#e10600" stroke-width="96" stroke-dasharray="26 26"/>
-    <use href="#track" stroke="#2a2d36" stroke-width="80"/>
+    <use href="#track" stroke="#f4f4f4" stroke-width="126"/>
+    <use href="#track" stroke="#e10600" stroke-width="126" stroke-dasharray="26 26"/>
+    <use href="#track" stroke="#2a2d36" stroke-width="110"/>
     <use href="#track" stroke="#3a3d47" stroke-width="80" stroke-dasharray="1 999" opacity="0"/>
     <use href="#track" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="14 18" opacity="0.18"/>
     <!-- DRS zone marker -->
     <path d="M 560 300 S 900 470 1120 300" fill="none" stroke="#22c55e" stroke-width="3" stroke-dasharray="12 10" opacity="0.5"/>
   </g>
 
-  <!-- Cars (each 64x30 sprite, scaled 2.4x). -->
-  <g transform="translate(287 435) rotate(-46) scale(2.4) translate(-32 -15)" color="#ffd200"><use href="#car"/></g>
-  <g transform="translate(444 342) rotate(-27) scale(2.4) translate(-32 -15)" color="#1e90ff"><use href="#car"/></g>
-  <g transform="translate(758 319) rotate(17) scale(2.4) translate(-32 -15)" color="#e10600"><use href="#car"/></g>
-  <g transform="translate(911 388) rotate(5) scale(2.4) translate(-32 -15)" color="#00c2a8"><use href="#car"/></g>
-  <g transform="translate(1293 148) rotate(-36) scale(2.4) translate(-32 -15)" color="#ff7a00"><use href="#car"/></g>
+  <!-- Cars (64x30 sprite at 2x = 128x60): asphalt is 110 wide, lanes at ±15 keep the 60px car inside it. -->
+  <g transform="translate(313 466) rotate(-51) scale(2) translate(-32 -15)" color="#ffd200"><use href="#car"/></g>
+  <g transform="translate(468 367) rotate(-27) scale(2) translate(-32 -15)" color="#1e90ff"><use href="#car"/></g>
+  <g transform="translate(748 348) rotate(19) scale(2) translate(-32 -15)" color="#e10600"><use href="#car"/></g>
+  <g transform="translate(901 427) rotate(8) scale(2) translate(-32 -15)" color="#00c2a8"><use href="#car"/></g>
+  <g transform="translate(1182 257) rotate(-40) scale(2) translate(-32 -15)" color="#ff7a00"><use href="#car"/></g>
 
   <!-- Timing tower fragment. -->
   <g transform="translate(1000 540)" font-family="Titillium Web, Segoe UI, Helvetica, Arial, sans-serif" font-size="18" fill="#cfd2da">
