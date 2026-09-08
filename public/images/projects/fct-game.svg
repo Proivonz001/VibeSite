@@ -1,7 +1,100 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f59e0b"/><stop offset="1" stop-color="#dc2626"/></linearGradient>
-<pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity="0.12"/></pattern></defs>
-<rect width="1280" height="720" fill="url(#g)"/><rect width="1280" height="720" fill="url(#p)"/>
-<text x="80" y="400" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="120" font-weight="800" fill="#fff" letter-spacing="-4">FCT</text>
-<text x="84" y="470" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="36" fill="#fff" fill-opacity="0.85">Automation · Godot 4</text>
+  <defs>
+    <pattern id="tiles" width="64" height="64" patternUnits="userSpaceOnUse">
+      <rect width="64" height="64" fill="#2a2d36"/>
+      <rect width="32" height="32" fill="#2e313b"/>
+      <rect x="32" y="32" width="32" height="32" fill="#2e313b"/>
+    </pattern>
+    <linearGradient id="vignette" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.55"/>
+    </linearGradient>
+    <!-- belt segment: dark base, two lanes, chevrons -->
+    <g id="belt">
+      <rect width="64" height="64" fill="#3c4150"/>
+      <rect x="4" y="8" width="56" height="20" rx="3" fill="#20232b"/>
+      <rect x="4" y="36" width="56" height="20" rx="3" fill="#20232b"/>
+      <path d="M22 12 l8 6 l-8 6 M22 40 l8 6 l-8 6 M42 12 l8 6 l-8 6 M42 40 l8 6 l-8 6" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    </g>
+    <g id="ore-iron"><circle r="9" fill="#9aa3b2"/><circle cx="-3" cy="-3" r="3" fill="#c7ced9"/></g>
+    <g id="ore-copper"><circle r="9" fill="#d97706"/><circle cx="-3" cy="-3" r="3" fill="#fbbf24"/></g>
+    <g id="ingot"><rect x="-10" y="-6" width="20" height="12" rx="2" fill="#cbd5e1"/><rect x="-8" y="-4" width="16" height="3" fill="#f1f5f9"/></g>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#tiles)"/>
+
+  <!-- Ore patches -->
+  <g opacity="0.9">
+    <g transform="translate(176 100)"><use href="#ore-iron"/><use href="#ore-iron" x="-8" y="40"/><use href="#ore-iron" x="6" y="128"/><use href="#ore-iron" x="60" y="140"/><use href="#ore-iron" x="130" y="136"/><use href="#ore-iron" x="150" y="8"/><use href="#ore-iron" x="90" y="-10"/><use href="#ore-iron" x="40" y="-12"/></g>
+    <g transform="translate(120 420)"><use href="#ore-copper"/><use href="#ore-copper" x="24" y="14"/><use href="#ore-copper" x="4" y="32"/><use href="#ore-copper" x="34" y="40"/></g>
+  </g>
+
+  <!-- Drill (2x2) -->
+  <g transform="translate(192 96)">
+    <rect width="128" height="128" rx="8" fill="#475569" stroke="#1e293b" stroke-width="3"/>
+    <circle cx="64" cy="64" r="34" fill="#1e293b"/>
+    <circle cx="64" cy="64" r="22" fill="#94a3b8"/>
+    <path d="M64 42 l10 22 l-20 0 z" fill="#f59e0b"/>
+    <path d="M144 64 l-16 -10 v20 z" fill="#f59e0b"/>
+  </g>
+
+  <!-- Belt from drill to furnace, then to depot -->
+  <g>
+    <use href="#belt" x="336" y="128"/><use href="#belt" x="400" y="128"/><use href="#belt" x="464" y="128"/>
+    <use href="#belt" x="528" y="128" transform="rotate(90 560 160)"/>
+    <use href="#belt" x="528" y="192" transform="rotate(90 560 224)"/>
+    <use href="#belt" x="528" y="256" transform="rotate(90 560 288)"/>
+  </g>
+  <use href="#ore-iron" x="368" y="160"/><use href="#ore-iron" x="432" y="146"/><use href="#ore-iron" x="496" y="174"/><use href="#ore-iron" x="546" y="230"/>
+
+  <!-- Furnace (2x2) -->
+  <g transform="translate(496 320)">
+    <rect width="128" height="128" rx="8" fill="#7f1d1d" stroke="#1e293b" stroke-width="3"/>
+    <rect x="24" y="24" width="80" height="80" rx="6" fill="#111827"/>
+    <path d="M44 96 C 40 70, 70 66, 62 44 C 82 56, 90 78, 84 96 Z" fill="#f97316"/>
+    <path d="M56 96 C 54 82, 70 78, 66 64 C 76 74, 78 86, 74 96 Z" fill="#fde047"/>
+    <path d="M144 64 l-16 -10 v20 z" fill="#f59e0b"/>
+    <rect x="-14" y="56" width="14" height="16" fill="#0f172a"/>
+  </g>
+
+  <!-- Belt from furnace to depot with ingots -->
+  <g>
+    <use href="#belt" x="640" y="352"/><use href="#belt" x="704" y="352"/><use href="#belt" x="768" y="352"/><use href="#belt" x="832" y="352"/>
+  </g>
+  <use href="#ingot" x="672" y="384"/><use href="#ingot" x="736" y="370"/><use href="#ingot" x="812" y="398"/><use href="#ingot" x="868" y="376"/>
+
+  <!-- Splitter -->
+  <g transform="translate(896 320)">
+    <rect width="128" height="128" rx="8" fill="#6d28d9" stroke="#1e293b" stroke-width="3"/>
+    <path d="M64 30 l12 18 h-24 z M64 98 l12 -18 h-24 z M98 64 l-18 12 v-24 z" fill="#ddd6fe"/>
+    <circle cx="64" cy="64" r="10" fill="#1e1b4b"/>
+  </g>
+  <use href="#belt" x="1024" y="352"/><use href="#belt" x="1088" y="352"/>
+  <use href="#belt" x="928" y="192" transform="rotate(-90 960 224)"/><use href="#belt" x="928" y="256" transform="rotate(-90 960 288)"/>
+
+  <!-- Depot -->
+  <g transform="translate(1152 320)">
+    <rect width="128" height="128" rx="8" fill="#2563eb" stroke="#1e293b" stroke-width="3"/>
+    <text x="64" y="72" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">DEPOT</text>
+  </g>
+
+  <!-- Player + build radius -->
+  <g transform="translate(700 560)">
+    <circle r="120" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-dasharray="6 8"/>
+    <circle r="16" fill="#facc15" stroke="#1e293b" stroke-width="3"/>
+  </g>
+
+  <rect y="440" width="1280" height="280" fill="url(#vignette)"/>
+
+  <!-- HUD strip -->
+  <g transform="translate(60 520)" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#e2e8f0">
+    <rect x="-16" y="-14" width="420" height="44" rx="10" fill="#0f172a" fill-opacity="0.85" stroke="#334155"/>
+    <text x="0" y="14">Empty hand (Q)</text><text x="150" y="14">Build (B)</text><text x="250" y="14">Demolish</text>
+    <text x="330" y="14" fill="#94a3b8">Fe 40</text>
+  </g>
+
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="60" y="640" font-size="120" font-weight="800" fill="#ffffff" letter-spacing="-3">FCT</text>
+    <rect x="64" y="656" width="200" height="4" fill="#f59e0b"/>
+    <text x="64" y="690" font-size="22" fill="#cbd5e1" letter-spacing="4">BELTS, DRILLS AND FURNACES</text>
+  </g>
 </svg>
