@@ -71,5 +71,10 @@
     "title": "Page not found",
     "body": "The page you are looking for does not exist.",
     "back": "Back to home"
+  },
+  "play": {
+    "openInNewTab": "Open in a new tab",
+    "fullscreen": "Fullscreen",
+    "hint": "The game runs entirely in your browser, no download needed. The first load fetches about 10 MB; after that it starts instantly. Best played on a desktop with a keyboard and mouse."
   }
 }

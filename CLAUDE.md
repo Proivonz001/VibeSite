@@ -9,3 +9,4 @@
 - Theme: next-themes with class strategy; colors are CSS tokens in `src/app/globals.css` mapped through `@theme inline`.
 - Content (phase 2) goes in `content/projects/<lang>/*.md` and `content/blog/<lang>/*.md`.
 - Dev server: `npm run dev -- --port 3111` (see `.claude/launch.json`).
+- Games: Godot web exports live in `public/games/<slug>/` and are committed (about 40 MB each, mostly `index.wasm`). Rebuild with `scripts/export-game.ps1 -Project ..\EFFUAN -Slug effuan`. A project's `play` frontmatter points to `/games/<slug>/index.html`; the site wraps it in `/projects/<slug>/play`.

@@ -7,6 +7,7 @@ repo: Proivonz001/EFFUAN
 status: beta
 engine: Godot 4
 cover: /images/projects/effuan.svg
+play: /games/effuan/index.html
 featured: true
 ---
 
@@ -30,4 +31,4 @@ The whole project was written together with Claude Code, from the physics of the
 
 ## Status
 
-Playable and in active development. A browser version is planned; for now you can clone the repository and open it with Godot 4.7.
+Playable directly in the browser and in active development. You can also clone the repository and open it with Godot 4.7.

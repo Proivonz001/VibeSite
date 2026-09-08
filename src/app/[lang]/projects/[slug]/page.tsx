@@ -74,15 +74,13 @@ export default async function ProjectPage({
 
           <div className="mt-6 flex flex-wrap gap-3">
             {meta.play && (
-              <a
-                href={meta.play}
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href={localePath(locale, `/projects/${meta.slug}/play`)}
                 className="inline-flex items-center gap-2 rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-foreground hover:opacity-90"
               >
                 <Gamepad2 className="size-4" />
                 {d.projects.playNow}
-              </a>
+              </Link>
             )}
             {meta.demo && (
               <a
