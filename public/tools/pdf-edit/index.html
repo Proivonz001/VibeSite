@@ -1297,8 +1297,8 @@ async function runOCR(){
 let MU=null, muReady=false;
 function setMuBadge(state){
   const b=$("#muBadge"); if(!b) return;
-  if(state==="on"){ b.textContent="● Rimozione reale: ON"; b.style.color="var(--ok)"; }
-  else if(state==="off"){ b.textContent="○ Rimozione reale: non disp."; b.style.color="var(--muted)"; }
+  if(state==="on"){ b.textContent="● Real removal: ON"; b.style.color="var(--ok)"; }
+  else if(state==="off"){ b.textContent="○ Real removal: n/a"; b.style.color="var(--muted)"; }
   else { b.textContent="⏳ carico motore…"; b.style.color="var(--muted)"; }
 }
 async function loadMu(){

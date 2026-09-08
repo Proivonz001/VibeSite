@@ -4,6 +4,7 @@ summary: A PDF editor that runs entirely in your browser. Edit text in place, hi
 date: 2026-07-01
 kind: tool
 tags: [tool, pdf, wasm, ocr, privacy]
+repo: Proivonz001/pdf-editor
 demo: /tools/pdf-edit/index.html
 status: released
 engine: Vanilla JS + WebAssembly
@@ -19,7 +20,7 @@ requirements:
 
 Most "free" online PDF editors upload your document to a server. This one does not. It is a single page that loads a PDF engine compiled to WebAssembly and does all the work on your machine: the file never leaves the browser tab.
 
-You can use it right here, from the "Live demo" button, or download the folder and run it offline with the included one-click launcher.
+You can use it right here, from the "Live demo" button, or clone the repository and run it offline with the included one-click launcher.
 
 ## What it can do
 
