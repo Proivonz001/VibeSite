@@ -38,7 +38,13 @@
       "wip": "In progress",
       "prototype": "Prototype"
     },
-    "screenshots": "Screenshots"
+    "screenshots": "Screenshots",
+    "all": "All",
+    "kinds": {
+      "game": "Game",
+      "mcp": "MCP server",
+      "tool": "Tool"
+    }
   },
   "github": {
     "stars": "Stars",
@@ -56,9 +62,13 @@
   },
   "shop": {
     "title": "Shop",
-    "intro": "Games and MCP servers you can buy and use right away. Payments are handled securely by Lemon Squeezy.",
+    "intro": "Software you can buy or license. Games and open-source tools stay free; checkout, invoices and VAT are handled by Lemon Squeezy.",
     "empty": "Nothing for sale yet.",
-    "buy": "Buy"
+    "buy": "Buy",
+    "licensing": "Licensing on request",
+    "licensingTitle": "Commercial license",
+    "licensingBody": "This project is licensed per installation. Write to me for a demo and a quote.",
+    "contact": "Get in touch"
   },
   "about": {
     "title": "About",
@@ -77,5 +87,12 @@
     "openInNewTab": "Open in a new tab",
     "fullscreen": "Fullscreen",
     "hint": "The game runs entirely in your browser, no download needed. The first load fetches about 10 MB; after that it starts instantly. Best played on a desktop with a keyboard and mouse."
+  },
+  "mcp": {
+    "tools": "Tools",
+    "install": "Installation",
+    "requirements": "Requirements",
+    "copy": "Copy",
+    "copied": "Copied"
   }
 }

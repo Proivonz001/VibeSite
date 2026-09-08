@@ -2,12 +2,15 @@
 title: EFFUAN
 summary: A minimalist Formula 1 management game. ERS, DRS, tyre temperatures, dirty air and undercuts, in races that last five to eight real minutes.
 date: 2026-08-25
+kind: game
 tags: [game, f1, strategy, simulation]
 repo: Proivonz001/EFFUAN
 status: beta
 engine: Godot 4
-cover: /images/projects/effuan-race.png
+cover: /images/projects/effuan.svg
 screenshots:
+  - src: /images/projects/effuan-race.png
+    caption: Race view with timing tower, telemetry bar and the TV camera following a battle.
   - src: /images/projects/effuan-hub.png
     caption: Team hub between rounds, with standings, next race and the R&D shop.
   - src: /images/projects/effuan-setup.png

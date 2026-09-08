@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Gamepad2 } from "lucide-react";
+import { KindIcon } from "./kind-icon";
 import { Tag } from "./tag";
 import { GitHubIcon } from "./icons";
 import { localePath, type Locale } from "@/i18n/config";
@@ -22,7 +23,7 @@ export function ProjectCard({
 }) {
   const href = localePath(locale, `/projects/${project.slug}`);
   return (
-    <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition hover:border-accent/50 hover:shadow-md">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card transition hover:border-accent/50 hover:shadow-md">
       <Link href={href} className="relative block aspect-[16/9] w-full overflow-hidden bg-muted">
         {project.cover ? (
           <Image
@@ -35,13 +36,14 @@ export function ProjectCard({
           />
         ) : (
           <div className="flex h-full items-center justify-center text-muted-foreground">
-            <Gamepad2 className="size-10" />
+            <KindIcon kind={project.kind} className="size-10" />
           </div>
         )}
       </Link>
       <div className="flex flex-1 flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-lg font-semibold leading-tight">
+          <h3 className="flex items-center gap-2 text-lg font-semibold leading-tight">
+            <KindIcon kind={project.kind} className="size-4 shrink-0 text-muted-foreground" />
             <Link href={href} className="hover:text-accent">
               {project.title}
             </Link>

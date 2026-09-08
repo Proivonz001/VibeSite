@@ -2,6 +2,7 @@
 title: FCT
 summary: A Factorio-inspired automation game. Mine iron, copper and coal, smelt them in furnaces, and route everything with two-lane conveyor belts, splitters and tunnels.
 date: 2026-07-20
+kind: game
 tags: [game, automation, factory]
 status: wip
 engine: Godot 4

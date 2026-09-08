@@ -7,8 +7,9 @@ import { Container } from "@/components/container";
 import { GitHubIcon } from "@/components/icons";
 import { GitHubStats } from "@/components/github-stats";
 import { Markdown } from "@/components/markdown";
-import { ScreenshotGallery } from "@/components/screenshot-gallery";
+import { InstallSteps, Requirements, SaleBox, ToolList } from "@/components/mcp-details";
 import { statusLabel } from "@/components/project-card";
+import { ScreenshotGallery } from "@/components/screenshot-gallery";
 import { Tag } from "@/components/tag";
 import { enabledLocales, localePath } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
@@ -60,9 +61,8 @@ export default async function ProjectPage({
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <Tag tone={meta.status === "released" ? "accent" : "muted"}>
-              {statusLabel(meta.status, d)}
-            </Tag>
+            <Tag tone="accent">{d.projects.kinds[meta.kind]}</Tag>
+            <Tag>{statusLabel(meta.status, d)}</Tag>
             {meta.engine && <Tag>{meta.engine}</Tag>}
             {meta.tags.map((t) => (
               <Tag key={t}>{t}</Tag>
@@ -125,11 +125,15 @@ export default async function ProjectPage({
             <Markdown source={body} />
           </div>
 
+          <ToolList tools={meta.tools} d={d} />
+          <InstallSteps install={meta.install} d={d} />
           <ScreenshotGallery items={meta.screenshots ?? []} title={d.projects.screenshots} />
         </div>
 
         <aside className="space-y-6 lg:pt-2">
+          <SaleBox meta={meta} d={d} />
           {meta.repo && <GitHubStats repo={meta.repo} locale={locale} d={d} />}
+          <Requirements requirements={meta.requirements} d={d} />
           <div className="rounded-xl border border-border bg-card p-5 text-sm">
             <dt className="text-xs text-muted-foreground">{d.projects.published}</dt>
             <dd className="mt-1 font-medium">{formatDate(meta.date, locale)}</dd>

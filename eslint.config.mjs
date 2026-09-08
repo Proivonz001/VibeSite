@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Godot web exports are generated code.
+    "public/games/**",
   ]),
 ]);
 

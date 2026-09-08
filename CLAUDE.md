@@ -10,3 +10,4 @@
 - Content (phase 2) goes in `content/projects/<lang>/*.md` and `content/blog/<lang>/*.md`.
 - Dev server: `npm run dev -- --port 3111` (see `.claude/launch.json`).
 - Games: Godot web exports live in `public/games/<slug>/` and are committed (about 40 MB each, mostly `index.wasm`). Rebuild with `scripts/export-game.ps1 -Project ..\EFFUAN -Slug effuan`. A project's `play` frontmatter points to `/games/<slug>/index.html`; the site wraps it in `/projects/<slug>/play`.
+- Project frontmatter (`src/lib/content.ts` is the source of truth): `kind` (game|mcp|tool) drives the filter tabs and icons; `tools`, `requirements`, `install` render the MCP blocks on the detail page; `sale.mode` (free|contact|checkout) decides whether a project appears in the Shop. Covers are hand-made SVGs in `public/images/projects/`, screenshots go in `screenshots:`.

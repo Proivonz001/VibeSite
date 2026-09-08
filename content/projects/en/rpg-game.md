@@ -2,6 +2,7 @@
 title: Room Rogue
 summary: A room-based action roguelite that grew through four versions, from procedurally drawn 2D sprites in Python to a 3D port in Godot with stealth, patrols and backstab criticals.
 date: 2026-07-05
+kind: game
 tags: [game, roguelite, 3d, stealth]
 status: prototype
 engine: Godot 4

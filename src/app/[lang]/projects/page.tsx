@@ -3,8 +3,9 @@ import { Container } from "@/components/container";
 import { EmptyState } from "@/components/empty-state";
 import { PageHeader } from "@/components/page-header";
 import { ProjectCard } from "@/components/project-card";
+import { ProjectFilter } from "@/components/project-filter";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
-import { getProjects } from "@/lib/content";
+import { getProjects, projectKinds } from "@/lib/content";
 
 export async function generateMetadata(): Promise<Metadata> {
   const d = await getDictionary();
@@ -22,11 +23,14 @@ export default async function ProjectsPage() {
       {projects.length === 0 ? (
         <EmptyState message={d.projects.empty} />
       ) : (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <ProjectCard key={p.meta.slug} project={p.meta} locale={locale} d={d} />
-          ))}
-        </div>
+        <ProjectFilter
+          allLabel={d.projects.all}
+          labels={projectKinds.map((k) => ({ kind: k, label: d.projects.kinds[k] }))}
+          items={projects.map((p) => ({
+            kind: p.meta.kind,
+            card: <ProjectCard project={p.meta} locale={locale} d={d} />,
+          }))}
+        />
       )}
     </Container>
   );

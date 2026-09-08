@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a1a1c"/><stop offset="1" stop-color="#0f2a2e"/>
+    </linearGradient>
+    <g id="module">
+      <rect width="56" height="150" rx="4" fill="#1f2a30" stroke="#3b4a52"/>
+      <rect x="8" y="10" width="40" height="8" rx="2" fill="#2dd4bf" opacity="0.9"/>
+      <g fill="#0b1214">
+        <rect x="10" y="30" width="36" height="6" rx="1"/><rect x="10" y="42" width="36" height="6" rx="1"/>
+        <rect x="10" y="54" width="36" height="6" rx="1"/><rect x="10" y="66" width="36" height="6" rx="1"/>
+        <rect x="10" y="78" width="36" height="6" rx="1"/><rect x="10" y="90" width="36" height="6" rx="1"/>
+        <rect x="10" y="102" width="36" height="6" rx="1"/><rect x="10" y="114" width="36" height="6" rx="1"/>
+      </g>
+      <circle cx="28" cy="136" r="4" fill="#22c55e"/>
+    </g>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+
+  <!-- DIN rail -->
+  <rect x="60" y="150" width="1160" height="14" fill="#2a343a"/>
+
+  <!-- CPU -->
+  <g transform="translate(80 90)">
+    <rect width="150" height="150" rx="5" fill="#25323a" stroke="#3b4a52"/>
+    <rect x="12" y="12" width="126" height="34" rx="3" fill="#0b1214"/>
+    <text x="75" y="35" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#2dd4bf" text-anchor="middle" letter-spacing="3">CPU 1516</text>
+    <g fill="#22c55e"><circle cx="30" cy="70" r="5"/></g>
+    <g fill="#f59e0b"><circle cx="30" cy="92" r="5"/></g>
+    <g fill="#334048"><circle cx="30" cy="114" r="5"/></g>
+    <text x="48" y="75" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#9fb3ba">RUN</text>
+    <text x="48" y="97" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#9fb3ba">MAINT</text>
+    <text x="48" y="119" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#9fb3ba">ERROR</text>
+    <rect x="100" y="66" width="36" height="24" rx="3" fill="#0b1214" stroke="#2dd4bf" stroke-opacity="0.6"/>
+    <text x="118" y="83" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="10" fill="#2dd4bf" text-anchor="middle">PN</text>
+  </g>
+  <!-- IO modules -->
+  <g transform="translate(250 90)"><use href="#module"/></g>
+  <g transform="translate(316 90)"><use href="#module"/></g>
+  <g transform="translate(382 90)"><use href="#module"/></g>
+  <g transform="translate(448 90)"><use href="#module"/></g>
+  <g transform="translate(514 90)"><use href="#module"/></g>
+
+  <!-- PROFINET line to remote station -->
+  <path d="M198 173 C 198 320, 760 320, 760 173" fill="none" stroke="#2dd4bf" stroke-width="3" stroke-dasharray="8 8" opacity="0.8"/>
+  <g transform="translate(720 90)"><use href="#module"/></g>
+  <g transform="translate(786 90)"><use href="#module"/></g>
+  <g transform="translate(852 90)"><use href="#module"/></g>
+  <text x="810" y="275" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14" fill="#7fb8bf" text-anchor="middle" letter-spacing="2">ET 200SP · PROFINET IO</text>
+
+  <!-- Terminal snippet -->
+  <g transform="translate(60 370)" font-family="Consolas, Menlo, monospace" font-size="20">
+    <rect width="620" height="160" rx="10" fill="#08110f" stroke="#1f3a36"/>
+    <text x="24" y="44" fill="#7fb8bf">&gt; add-cpu --order 6ES7 516-3AN02-0AB0 --name PLC1</text>
+    <text x="24" y="82" fill="#7fb8bf">&gt; add-device --order 6ES7 155-6AU01 --name ET1</text>
+    <text x="24" y="120" fill="#86efac">&gt; connect-io --controller PLC1 --device ET1   OK</text>
+  </g>
+
+  <!-- Plug glyph -->
+  <g transform="translate(1080 400)" fill="none" stroke="#a5f3fc" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.8">
+    <path d="M40 40 v40 M100 40 v40"/>
+    <path d="M20 80 h100 v20 a50 50 0 0 1 -100 0 z"/>
+    <path d="M70 150 v40"/>
+  </g>
+
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="60" y="630" font-size="96" font-weight="800" fill="#ffffff" letter-spacing="-3">TIA Openness Engine</text>
+    <text x="64" y="678" font-size="22" fill="#b3b7c2" letter-spacing="4">CLAUDE DRIVES TIA PORTAL V21</text>
+  </g>
+</svg>

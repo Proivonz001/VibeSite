@@ -7,8 +7,16 @@ import { defaultLocale, type Locale } from "@/i18n/config";
 const CONTENT_ROOT = path.join(process.cwd(), "content");
 
 export type ProjectStatus = "released" | "beta" | "wip" | "prototype";
+export type ProjectKind = "game" | "mcp" | "tool";
+export const projectKinds: ProjectKind[] = ["game", "mcp", "tool"];
 
 export type Screenshot = { src: string; caption?: string };
+export type ToolEntry = { name: string; description: string };
+export type InstallStep = { label: string; command: string };
+export type Sale =
+  | { mode: "free" }
+  | { mode: "contact"; note?: string }
+  | { mode: "checkout"; price: number; currency: string; url: string };
 
 export type ProjectMeta = {
   slug: string;
@@ -16,6 +24,7 @@ export type ProjectMeta = {
   summary: string;
   /** ISO date, used for ordering. */
   date: string;
+  kind: ProjectKind;
   tags: string[];
   /** GitHub repository as "owner/name". Optional for local-only projects. */
   repo?: string;
@@ -31,8 +40,14 @@ export type ProjectMeta = {
   /** Engine or main technology, shown as a badge. */
   engine?: string;
   featured?: boolean;
-  /** Set when the project is sold in the shop. */
-  price?: { amount: number; currency: string; checkoutUrl: string };
+  /** MCP servers and tools: the tools they expose. */
+  tools?: ToolEntry[];
+  /** What the user needs before running it. */
+  requirements?: string[];
+  /** Copy-paste installation commands. */
+  install?: InstallStep[];
+  /** How the project is distributed; drives the Shop page. */
+  sale?: Sale;
 };
 
 export type PostMeta = {
@@ -93,14 +108,27 @@ async function readOne<M extends { slug: string; date: string }>(
   return all.find((e) => e.meta.slug === slug) ?? null;
 }
 
-export const getProjects = (locale: Locale) => readAll<ProjectMeta>("projects", locale);
-export const getProject = (locale: Locale, slug: string) =>
-  readOne<ProjectMeta>("projects", locale, slug);
+function normalizeProject(entry: Entry<ProjectMeta>): Entry<ProjectMeta> {
+  const meta = entry.meta;
+  const rawDate: unknown = meta.date;
+  const date = rawDate instanceof Date ? rawDate.toISOString().slice(0, 10) : String(rawDate);
+  return {
+    ...entry,
+    meta: { ...meta, date, kind: meta.kind ?? "tool", tags: meta.tags ?? [] },
+  };
+}
+
+export const getProjects = async (locale: Locale) =>
+  (await readAll<ProjectMeta>("projects", locale)).map(normalizeProject);
+export const getProject = async (locale: Locale, slug: string) => {
+  const entry = await readOne<ProjectMeta>("projects", locale, slug);
+  return entry ? normalizeProject(entry) : null;
+};
 
 export const getPosts = (locale: Locale) => readAll<PostMeta>("blog", locale);
 export const getPost = (locale: Locale, slug: string) => readOne<PostMeta>("blog", locale, slug);
 
-export function formatDate(iso: string, locale: Locale): string {
+export function formatDate(iso: string | Date, locale: Locale): string {
   return new Date(iso).toLocaleDateString(locale === "it" ? "it-IT" : "en-GB", {
     year: "numeric",
     month: "short",
