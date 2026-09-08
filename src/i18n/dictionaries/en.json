@@ -1,0 +1,58 @@
+{
+  "site": {
+    "name": "Priamo Anfuso",
+    "tagline": "Things I build with AI",
+    "description": "Portfolio, blog and small shop of games, tools and MCP servers built together with AI."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "blog": "Blog",
+    "shop": "Shop",
+    "about": "About",
+    "github": "GitHub",
+    "toggleTheme": "Toggle theme",
+    "menu": "Menu"
+  },
+  "home": {
+    "heroTitle": "I build games, tools and MCP servers with AI.",
+    "heroSubtitle": "This is where I keep track of what I make, how I make it, and what you can play or use yourself.",
+    "ctaProjects": "See the projects",
+    "ctaBlog": "Read the blog",
+    "latestProjects": "Latest projects",
+    "latestPosts": "Latest posts",
+    "viewAll": "View all"
+  },
+  "projects": {
+    "title": "Projects",
+    "intro": "Everything I have shipped so far, from browser games to developer tools. Each one links to its source on GitHub.",
+    "empty": "No projects published yet. Come back soon.",
+    "viewSource": "Source on GitHub",
+    "playNow": "Play now",
+    "liveDemo": "Live demo"
+  },
+  "blog": {
+    "title": "Blog",
+    "intro": "Notes on building with AI: what worked, what did not, and what I learned along the way.",
+    "empty": "No posts yet. The first one is on its way."
+  },
+  "shop": {
+    "title": "Shop",
+    "intro": "Games and MCP servers you can buy and use right away. Payments are handled securely by Lemon Squeezy.",
+    "empty": "Nothing for sale yet.",
+    "buy": "Buy"
+  },
+  "about": {
+    "title": "About",
+    "body": "I am Priamo, an engineer who likes to turn ideas into working software with the help of AI. This site collects the results."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js and a lot of AI."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist.",
+    "back": "Back to home"
+  }
+}
