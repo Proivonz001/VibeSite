@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0f16"/><stop offset="1" stop-color="#171a26"/>
+    </linearGradient>
+    <linearGradient id="speed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e"/><stop offset="0.5" stop-color="#facc15"/><stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+
+  <!-- Circuit outline (closed loop) with car dots -->
+  <g transform="translate(560 40)">
+    <path id="circuit" d="M60 300 C 40 200, 120 150, 200 160 S 330 120, 420 80 S 620 60, 640 140 S 560 250, 480 260 S 400 330, 420 400 S 300 470, 220 430 S 80 400, 60 300 Z" fill="none" stroke="#2b2f3d" stroke-width="22" stroke-linejoin="round"/>
+    <use href="#circuit" stroke="#3a3f52" stroke-width="16"/>
+    <!-- sector colours -->
+    <path d="M60 300 C 40 200, 120 150, 200 160 S 330 120, 420 80" fill="none" stroke="#a855f7" stroke-width="4" stroke-opacity="0.9"/>
+    <path d="M420 80 S 620 60, 640 140 S 560 250, 480 260" fill="none" stroke="#22c55e" stroke-width="4" stroke-opacity="0.9"/>
+    <path d="M480 260 S 400 330, 420 400 S 300 470, 220 430 S 80 400, 60 300" fill="none" stroke="#facc15" stroke-width="4" stroke-opacity="0.9"/>
+    <!-- DRS zone -->
+    <path d="M200 160 S 330 120, 420 80" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="8 8" opacity="0.5"/>
+    <!-- start/finish -->
+    <rect x="52" y="292" width="16" height="16" fill="#ffffff"/><rect x="52" y="292" width="8" height="8" fill="#111"/><rect x="60" y="300" width="8" height="8" fill="#111"/>
+    <!-- cars -->
+    <g stroke="#0d0f16" stroke-width="2">
+      <circle cx="130" cy="180" r="9" fill="#e10600"/><circle cx="160" cy="166" r="9" fill="#1e90ff"/>
+      <circle cx="380" cy="94" r="9" fill="#ff7a00"/><circle cx="560" cy="70" r="9" fill="#00c2a8"/>
+      <circle cx="600" cy="220" r="9" fill="#ffd200"/><circle cx="440" cy="330" r="9" fill="#f472b6"/>
+      <circle cx="300" cy="455" r="9" fill="#a3e635"/><circle cx="100" cy="380" r="9" fill="#94a3b8"/>
+    </g>
+    <text x="118" y="152" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#e2e8f0">VER</text>
+    <text x="164" y="150" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="13" fill="#e2e8f0">NOR</text>
+  </g>
+
+  <!-- Leaderboard -->
+  <g transform="translate(60 60)" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#e2e8f0">
+    <rect x="-16" y="-24" width="330" height="330" rx="12" fill="#0b0d13" stroke="#262a36"/>
+    <text x="0" y="0" font-size="13" fill="#8a8f9c" letter-spacing="2">LAP 41 / 57</text>
+    <g>
+      <rect x="0" y="16" width="4" height="18" fill="#e10600"/><text x="14" y="31">1  VER</text><text x="150" y="31" fill="#8a8f9c">LEADER</text><rect x="240" y="18" width="14" height="14" fill="#a855f7"/><rect x="258" y="18" width="14" height="14" fill="#22c55e"/><rect x="276" y="18" width="14" height="14" fill="#facc15"/>
+      <rect x="0" y="46" width="4" height="18" fill="#1e90ff"/><text x="14" y="61">2  NOR</text><text x="150" y="61" fill="#8a8f9c">+1.8</text><rect x="240" y="48" width="14" height="14" fill="#22c55e"/><rect x="258" y="48" width="14" height="14" fill="#facc15"/><rect x="276" y="48" width="14" height="14" fill="#22c55e"/>
+      <rect x="0" y="76" width="4" height="18" fill="#ff7a00"/><text x="14" y="91">3  LEC</text><text x="150" y="91" fill="#8a8f9c">+6.4</text><rect x="240" y="78" width="14" height="14" fill="#facc15"/><rect x="258" y="78" width="14" height="14" fill="#22c55e"/><rect x="276" y="78" width="14" height="14" fill="#facc15"/>
+      <rect x="0" y="106" width="4" height="18" fill="#00c2a8"/><text x="14" y="121">4  HAM</text><text x="150" y="121" fill="#8a8f9c">+9.1</text><rect x="240" y="108" width="14" height="14" fill="#22c55e"/><rect x="258" y="108" width="14" height="14" fill="#22c55e"/><rect x="276" y="108" width="14" height="14" fill="#facc15"/>
+      <rect x="0" y="136" width="4" height="18" fill="#ffd200"/><text x="14" y="151">5  SAI</text><text x="150" y="151" fill="#22c55e">+0.7 DRS</text><rect x="240" y="138" width="14" height="14" fill="#facc15"/><rect x="258" y="138" width="14" height="14" fill="#facc15"/><rect x="276" y="138" width="14" height="14" fill="#22c55e"/>
+      <rect x="0" y="166" width="4" height="18" fill="#f472b6"/><text x="14" y="181">6  PIA</text><text x="150" y="181" fill="#8a8f9c">+2.2</text><rect x="240" y="168" width="14" height="14" fill="#22c55e"/><rect x="258" y="168" width="14" height="14" fill="#facc15"/><rect x="276" y="168" width="14" height="14" fill="#facc15"/>
+      <rect x="0" y="196" width="4" height="18" fill="#a3e635"/><text x="14" y="211">7  ALO</text><text x="150" y="211" fill="#8a8f9c">+4.9</text><rect x="240" y="198" width="14" height="14" fill="#facc15"/><rect x="258" y="198" width="14" height="14" fill="#22c55e"/><rect x="276" y="198" width="14" height="14" fill="#22c55e"/>
+      <rect x="0" y="226" width="4" height="18" fill="#94a3b8"/><text x="14" y="241">8  RUS</text><text x="150" y="241" fill="#8a8f9c">PIT</text><rect x="240" y="228" width="14" height="14" fill="#facc15"/><rect x="258" y="228" width="14" height="14" fill="#facc15"/><rect x="276" y="228" width="14" height="14" fill="#facc15"/>
+    </g>
+    <text x="0" y="282" font-size="12" fill="#8a8f9c">RACE CONTROL · DRS ENABLED · TRACK 34°</text>
+  </g>
+
+  <!-- Speed trace -->
+  <g transform="translate(60 430)">
+    <rect x="-16" y="-20" width="460" height="130" rx="12" fill="#0b0d13" stroke="#262a36"/>
+    <text x="0" y="0" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" fill="#8a8f9c" letter-spacing="2">SPEED · LAP 41 vs LAP 40</text>
+    <polyline points="0,90 40,40 80,30 110,70 140,80 170,25 220,20 250,60 280,85 310,35 350,30 380,75 410,50 430,30" fill="none" stroke="url(#speed)" stroke-width="3" stroke-linejoin="round"/>
+    <polyline points="0,92 40,46 80,36 110,72 140,84 170,32 220,26 250,64 280,88 310,42 350,36 380,78 410,56 430,38" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" opacity="0.7"/>
+  </g>
+
+  <g font-family="Segoe UI, Helvetica, Arial, sans-serif">
+    <text x="60" y="640" font-size="104" font-weight="800" fill="#ffffff" letter-spacing="-3">EffeUno</text>
+    <rect x="64" y="656" width="200" height="4" fill="#e10600"/>
+    <text x="64" y="690" font-size="22" fill="#b3b7c2" letter-spacing="4">F1 TELEMETRY REPLAY</text>
+  </g>
+</svg>
