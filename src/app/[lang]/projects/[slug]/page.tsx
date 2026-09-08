@@ -117,7 +117,6 @@ export default async function ProjectPage({
                 labels={d.lightbox}
                 priority
                 sizes="(min-width: 1024px) 700px, 100vw"
-                className="absolute inset-0"
               />
             </div>
           )}

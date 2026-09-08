@@ -149,7 +149,7 @@ export function ZoomImage({
           type="button"
           onClick={() => open(0)}
           title={labels.zoom}
-          className={"group relative block w-full cursor-zoom-in " + (className ?? "")}
+          className={"group absolute inset-0 block h-full w-full cursor-zoom-in " + (className ?? "")}
         >
           <Image
             src={src}
