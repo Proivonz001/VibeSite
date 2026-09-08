@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Editor PDF</title>
+<title>PDF Editor</title>
 <style>
   :root{
     --bg:#1e1f24; --panel:#2a2c33; --panel2:#34373f; --line:#3d4049;
@@ -89,48 +89,48 @@
 <body>
 
 <div id="toolbar">
-  <button class="tb primary" id="btnOpen">📂 Apri PDF</button>
-  <button class="tb" id="btnAppend" disabled>➕ Unisci PDF</button>
+  <button class="tb primary" id="btnOpen">📂 Open PDF</button>
+  <button class="tb" id="btnAppend" disabled>➕ Merge PDF</button>
   <div class="sep"></div>
-  <button class="tb" id="btnUndo" disabled title="Annulla (Ctrl+Z)">↶</button>
-  <button class="tb" id="btnRedo" disabled title="Ripristina (Ctrl+Y)">↷</button>
+  <button class="tb" id="btnUndo" disabled title="Undo (Ctrl+Z)">↶</button>
+  <button class="tb" id="btnRedo" disabled title="Redo (Ctrl+Y)">↷</button>
   <div class="sep"></div>
-  <button class="tb active" data-tool="select" disabled>🖱️ Sposta</button>
-  <button class="tb" data-tool="text" disabled>🅣 Testo</button>
-  <button class="tb" data-tool="edittext" disabled title="Clicca una parola/riga per modificarla sul posto (stessa pagina)">✎ Modifica testo</button>
-  <button class="tb" id="btnEditAll" disabled title="Rende modificabile tutto il testo SULLA stessa pagina (alta qualità, come il singolo)">✎✎ Tutto il testo</button>
-  <button class="tb" id="btnCopyPage" disabled title="Crea una NUOVA pagina ricostruita con tutto il testo modificabile">➕ Copia in nuova pagina</button>
-  <button class="tb" data-tool="highlight" disabled>🖍️ Evidenzia</button>
-  <button class="tb" data-tool="whiteout" disabled>⬜ Cancella</button>
-  <button class="tb" data-tool="draw" disabled>✏️ Penna</button>
-  <button class="tb" data-tool="grid" disabled>▦ Griglia</button>
-  <button class="tb" data-tool="shape-line" disabled>／ Linea</button>
-  <button class="tb" data-tool="shape-rect" disabled>▭ Rettangolo</button>
-  <button class="tb" data-tool="shape-arrow" disabled>↗ Freccia</button>
-  <button class="tb" data-tool="image" disabled>🖼️ Immagine</button>
-  <button class="tb" id="btnSign" disabled>✍️ Firma</button>
-  <button class="tb" id="btnOCR" disabled title="Riconosci il testo di un PDF scansionato">🔎 OCR</button>
-  <select id="ocrLang" title="Lingua OCR"><option value="ita">Italiano</option><option value="eng">English</option><option value="ita+eng">ITA+ENG</option></select>
+  <button class="tb active" data-tool="select" disabled>🖱️ Move</button>
+  <button class="tb" data-tool="text" disabled>🅣 Text</button>
+  <button class="tb" data-tool="edittext" disabled title="Click a word or line to edit it in place (same page)">✎ Edit text</button>
+  <button class="tb" id="btnEditAll" disabled title="Make all the text editable ON the same page (high quality, like the single-line mode)">✎✎ All text</button>
+  <button class="tb" id="btnCopyPage" disabled title="Create a NEW rebuilt page with all the text editable">➕ Copy to new page</button>
+  <button class="tb" data-tool="highlight" disabled>🖍️ Highlight</button>
+  <button class="tb" data-tool="whiteout" disabled>⬜ Erase</button>
+  <button class="tb" data-tool="draw" disabled>✏️ Pen</button>
+  <button class="tb" data-tool="grid" disabled>▦ Grid</button>
+  <button class="tb" data-tool="shape-line" disabled>／ Line</button>
+  <button class="tb" data-tool="shape-rect" disabled>▭ Rectangle</button>
+  <button class="tb" data-tool="shape-arrow" disabled>↗ Arrow</button>
+  <button class="tb" data-tool="image" disabled>🖼️ Image</button>
+  <button class="tb" id="btnSign" disabled>✍️ Signature</button>
+  <button class="tb" id="btnOCR" disabled title="Recognise the text of a scanned PDF">🔎 OCR</button>
+  <select id="ocrLang" title="OCR language"><option value="eng">English</option><option value="ita">Italian</option><option value="ita+eng">ITA+ENG</option></select>
   <div class="sep"></div>
-  <label>Colore <input type="color" id="color" value="#e02424"></label>
-  <label>Dim. <input type="number" id="size" value="16" min="6" max="200"></label>
-  <button class="tb" id="btnBold" disabled title="Grassetto"><b>B</b></button>
-  <button class="tb" id="btnItalic" disabled title="Corsivo"><i>I</i></button>
-  <label title="Griglia: righe × colonne">▦ <input type="number" id="gridRows" value="3" min="1" max="50" style="width:44px"> × <input type="number" id="gridCols" value="3" min="1" max="50" style="width:44px"></label>
+  <label>Color <input type="color" id="color" value="#e02424"></label>
+  <label>Size <input type="number" id="size" value="16" min="6" max="200"></label>
+  <button class="tb" id="btnBold" disabled title="Bold"><b>B</b></button>
+  <button class="tb" id="btnItalic" disabled title="Italic"><i>I</i></button>
+  <label title="Grid: rows × columns">▦ <input type="number" id="gridRows" value="3" min="1" max="50" style="width:44px"> × <input type="number" id="gridCols" value="3" min="1" max="50" style="width:44px"></label>
   <div class="spacer"></div>
-  <span id="muBadge" class="hint" title="Motore di rimozione reale del testo (MuPDF / WASM)">⏳ motore…</span>
-  <span class="hint">✕ o Canc per eliminare</span>
-  <button class="tb primary" id="btnExport" disabled>💾 Esporta PDF</button>
+  <span id="muBadge" class="hint" title="Real text-removal engine (MuPDF / WASM)">⏳ engine…</span>
+  <span class="hint">✕ or Del to remove</span>
+  <button class="tb primary" id="btnExport" disabled>💾 Export PDF</button>
 </div>
 
 <div id="main">
-  <div id="sidebar"><h3>Pagine</h3><div id="thumbs"></div></div>
+  <div id="sidebar"><h3>Pages</h3><div id="thumbs"></div></div>
   <div id="viewer">
     <div id="empty">
       <div class="drop" id="drop">
-        <h2>Trascina qui un PDF</h2>
-        <div>oppure clicca “Apri PDF” in alto</div>
-        <div style="font-size:12px;margin-top:10px">Tutto avviene nel tuo browser — nessun file viene caricato online.</div>
+        <h2>Drop a PDF here</h2>
+        <div>or click “Open PDF” above</div>
+        <div style="font-size:12px;margin-top:10px">Everything happens in your browser — no file is ever uploaded.</div>
       </div>
     </div>
   </div>
@@ -144,17 +144,17 @@
 
 <div id="sigModal" class="modal" hidden>
   <div class="modalbox">
-    <h3>✍️ Firma</h3>
-    <div class="hint" style="padding:0 0 8px">Disegna la firma qui sotto (mouse o dito), salvala e riusala quando vuoi.</div>
+    <h3>✍️ Signature</h3>
+    <div class="hint" style="padding:0 0 8px">Draw your signature below (mouse or finger), save it and reuse it whenever you want.</div>
     <canvas id="sigPad" width="520" height="180"></canvas>
     <div class="row">
-      <label>Colore <input type="color" id="sigColor" value="#0b1f44"></label>
-      <button class="tb" id="sigClear">Pulisci</button>
-      <button class="tb primary" id="sigSave">💾 Salva firma</button>
+      <label>Color <input type="color" id="sigColor" value="#0b1f44"></label>
+      <button class="tb" id="sigClear">Clear</button>
+      <button class="tb primary" id="sigSave">💾 Save signature</button>
     </div>
-    <h4>Firme salvate (in locale su questo PC)</h4>
+    <h4>Saved signatures (stored locally on this device)</h4>
     <div id="sigList" class="siglist"></div>
-    <div class="row end"><button class="tb" id="sigClose">Chiudi</button></div>
+    <div class="row end"><button class="tb" id="sigClose">Close</button></div>
   </div>
 </div>
 
@@ -202,7 +202,7 @@ function appDialog(msg, opts){
     const p=document.createElement("div"); p.textContent=msg; p.style.whiteSpace="pre-wrap"; p.style.marginBottom="14px";
     const row=document.createElement("div"); row.className="row end";
     const done=v=>{ ov.remove(); document.removeEventListener("keydown",onKey,true); res(v); };
-    if(opts.confirm){ const no=document.createElement("button"); no.className="tb"; no.textContent=opts.cancelText||"Annulla"; no.onclick=()=>done(false); row.appendChild(no); }
+    if(opts.confirm){ const no=document.createElement("button"); no.className="tb"; no.textContent=opts.cancelText||"Cancel"; no.onclick=()=>done(false); row.appendChild(no); }
     const ok=document.createElement("button"); ok.className="tb primary"; ok.textContent=opts.okText||"OK"; ok.onclick=()=>done(true); row.appendChild(ok);
     box.append(p,row); ov.appendChild(box); document.body.appendChild(ov);
     const onKey=e=>{ if(e.key==="Escape"){ e.stopPropagation(); done(false);} else if(e.key==="Enter"){ e.stopPropagation(); done(true);} };
@@ -228,7 +228,7 @@ drop.addEventListener("drop", e=>{
 });
 
 async function loadPdf(file, replace){
-  status("Carico il PDF…");
+  status("Loading the PDF…");
   const buf = new Uint8Array(await file.arrayBuffer());
   const sourceId = "s"+(srcSeq++);
   sources[sourceId] = { bytes: buf };
@@ -243,7 +243,7 @@ async function loadPdf(file, replace){
   enableTools(true);
   await renderAll();
   resetHistory(); record();   // stato iniziale per annulla/ripristina
-  status(`PDF caricato (${pdf.numPages} pagine)`);
+  status(`PDF loaded (${pdf.numPages} pages)`);
 }
 
 function enableTools(on){
@@ -312,11 +312,11 @@ function buildThumb(pe){
   const pno=document.createElement("div"); pno.className="pno"; pno.textContent=pages.indexOf(pe)+1; t.appendChild(pno);
   if(pe.rotation){ const b=document.createElement("div"); b.className="badge"; b.textContent="↻"+pe.rotation+"°"; t.appendChild(b); }
   const btns=document.createElement("div"); btns.className="pgbtns";
-  btns.innerHTML=`<button title="Su">▲</button><button title="Giù">▼</button><button title="Ruota">↻</button><button title="Elimina">🗑</button>`;
+  btns.innerHTML=`<button title="Up">▲</button><button title="Down">▼</button><button title="Rotate">↻</button><button title="Delete">🗑</button>`;
   const [up,down,rot,del]=btns.querySelectorAll("button");
   up.onclick=e=>{e.stopPropagation();movePage(pe,-1);};
   down.onclick=e=>{e.stopPropagation();movePage(pe,1);};
-  rot.onclick=e=>{e.stopPropagation();pe.rotation=(pe.rotation+90)%360;refreshThumbs();status("Rotazione applicata all'esportazione");};
+  rot.onclick=e=>{e.stopPropagation();pe.rotation=(pe.rotation+90)%360;refreshThumbs();status("Rotation will be applied on export");};
   del.onclick=e=>{e.stopPropagation();deletePage(pe);};
   t.appendChild(btns);
   t.onclick=()=>pe.el.scrollIntoView({behavior:"smooth",block:"start"});
@@ -332,8 +332,8 @@ function movePage(pe,dir){
 }
 function reorderDom(){ pages.forEach(pe=>viewer.appendChild(pe.el)); refreshThumbs(); }
 async function deletePage(pe){
-  if(pages.length<=1){ status("Non puoi eliminare l'unica pagina"); return; }
-  if(!(await appConfirm("Eliminare questa pagina?"))) return;
+  if(pages.length<=1){ status("You cannot delete the only page"); return; }
+  if(!(await appConfirm("Delete this page?"))) return;
   pages=pages.filter(p=>p!==pe); pe.el.remove(); refreshThumbs();
 }
 
@@ -472,7 +472,7 @@ async function extractText(pe, page, viewport){
       const italic=/italic|oblique|[-,_ ]it\b/.test(probe);
       pe.textItems.push({ str:it.str, x:tx[4], y:tx[5]-fh, w:(it.width||0)*viewport.scale, h:fh, fontSize:fh, bold, italic, font:psName });
     }
-  }catch(e){ console.warn("Estrazione testo non riuscita:", e); }
+  }catch(e){ console.warn("Text extraction failed:", e); }
 }
 
 function findTextItemAt(pe,p){
@@ -570,7 +570,7 @@ function makeItemEditable(pe, it, group){
 }
 function startEditExisting(pe,p){
   const it=findTextItemAt(pe,p);
-  if(!it){ status("Nessun testo qui — clicca su una parola esistente"); return; }
+  if(!it){ status("No text here — click an existing word"); return; }
   const el=makeItemEditable(pe, it);
   activateSelectTool(); selectAnn(el);
   const ed=el.querySelector(".edit"); ed.focus();
@@ -607,34 +607,34 @@ function mergeRuns(items){
   }
   return out;
 }
-// "Tutto il testo" SUL POSTO: applica il metodo del singolo (makeItemEditable) a tutte
+// "All text" SUL POSTO: applica il metodo del singolo (makeItemEditable) a tutte
 // le righe della pagina corrente. Stessa qualità del singolo, originale nitido, no nuova pagina.
 function editAllInPlace(pe){
   pe = pe || getVisiblePage();
-  if(!pe){ appAlert("Apri prima un PDF."); return; }
-  if(pe.synthetic){ status("Questa è già una pagina modificabile"); return; }
+  if(!pe){ appAlert("Open a PDF first."); return; }
+  if(pe.synthetic){ status("This is already an editable page"); return; }
   const items=(pe.textItems||[]).filter(it=>it.str && it.str.trim());
-  if(!items.length){ status("Nessun testo reale qui — per le scansioni usa 🔎 OCR"); return; }
-  if(pe._allEditable){ status("Il testo di questa pagina è già modificabile"); return; }
+  if(!items.length){ status("No real text here — for scans use 🔎 OCR"); return; }
+  if(pe._allEditable){ status("The text of this page is already editable"); return; }
   const linesRuns=mergeRuns(items); let n=0;
   for(const L of linesRuns){ for(const r of L.runs){ makeItemEditable(pe, r, L.gid); n++; } }
   pe._allEditable=true;
   activateSelectTool(); record();
-  status("Tutto il testo modificabile sul posto: "+linesRuns.length+" righe, "+n+" caselle");
+  status("All text editable in place: "+linesRuns.length+" lines, "+n+" boxes");
 }
-// "Copia in nuova pagina": crea una NUOVA pagina modificabile (originale intatto).
+// "Copy to new page": crea una NUOVA pagina modificabile (originale intatto).
 // Sfondo = pagina con il solo testo rimosso (foto/tabelle/forme restano) +
 // caselle di testo con dimensione/colore/grassetto/font esatti, unite per riga e raggruppate.
 async function convertAllText(pe){
   pe = pe || getVisiblePage();
-  if(!pe){ appAlert("Apri prima un PDF."); return; }
+  if(!pe){ appAlert("Open a PDF first."); return; }
   const src = pe.el && pe.el.querySelector("canvas.base");
   const items=(pe.textItems||[]).filter(it=>it.str && it.str.trim());
-  if(pe.synthetic){ status("Questa è già una pagina modificabile"); return; }
-  if(!items.length){ status("Nessun testo reale qui — per le scansioni usa 🔎 OCR"); return; }
+  if(pe.synthetic){ status("This is already an editable page"); return; }
+  if(!items.length){ status("No real text here — for scans use 🔎 OCR"); return; }
   $("#btnEditAll").disabled=true;
   try{
-    status("Creo la pagina modificabile…");
+    status("Creating the editable page…");
     const np=addBlankPageAfter(pe, pe.dispW/RENDER_SCALE, pe.dispH/RENDER_SCALE);
     await renderPage(np); pe.el.after(np.el);
     const pageBg=hexArr(samplePageBg(src));
@@ -655,8 +655,8 @@ async function convertAllText(pe){
     }
     np.annotations.forEach(a=>renderAnn(np,a));
     refreshThumbs(); np.el.scrollIntoView({behavior:"smooth",block:"start"}); record();
-    status("Nuova pagina modificabile creata: "+linesRuns.length+" righe, "+nBoxes+" caselle");
-  }catch(e){ console.error(e); appAlert("Errore: "+e.message); status("Operazione fallita"); }
+    status("New editable page created: "+linesRuns.length+" lines, "+nBoxes+" boxes");
+  }catch(e){ console.error(e); appAlert("Error: "+e.message); status("Operation failed"); }
   finally{ $("#btnEditAll").disabled=false; }
 }
 // Maschera che copre SOLO i pixel dell'inchiostro col colore di sfondo (PNG trasparente altrove)
@@ -707,7 +707,7 @@ function renderAnn(pe,a){
   // grip (sposta) + handle (ridimensiona) + del (elimina)
   const grip=document.createElement("div"); grip.className="grip";
   const handle=document.createElement("div"); handle.className="handle";
-  const del=document.createElement("div"); del.className="del"; del.textContent="×"; del.title="Elimina";
+  const del=document.createElement("div"); del.className="del"; del.textContent="×"; del.title="Delete";
   del.addEventListener("pointerdown",e=>{ e.stopPropagation(); e.preventDefault(); removeAnn(el); });
   el.append(grip,handle,del);
   enableDrag(el,grip); enableResize(el,handle);
@@ -873,7 +873,7 @@ function enableResize(el,handle){
 $("#btnExport").onclick=exportPdf;
 async function exportPdf(){
   try{
-    status("Genero il PDF…"); deselect();
+    status("Generating the PDF…"); deselect();
     const out=await PDFLib.PDFDocument.create();
     if(FK){ try{ out.registerFontkit(FK); }catch(e){} }
     const SF=PDFLib.StandardFonts;
@@ -1009,12 +1009,12 @@ async function exportPdf(){
     const url=URL.createObjectURL(blob);
     const a=document.createElement("a"); a.href=url; a.download="documento-modificato.pdf"; a.click();
     setTimeout(()=>URL.revokeObjectURL(url),4000);
-    let msg="PDF esportato ✔";
-    if(removedReal && usedEmbedded) msg+=" (testo rimosso + font originale riusato)";
-    else if(removedReal) msg+=" (testo originale rimosso davvero)";
+    let msg="PDF exported ✔";
+    if(removedReal && usedEmbedded) msg+=" (text removed + original font reused)";
+    else if(removedReal) msg+=" (original text truly removed)";
     else if(usedEmbedded) msg+=" (font originale riusato)";
     status(msg);
-  }catch(err){ console.error(err); appAlert("Errore durante l'esportazione:\n"+err.message); }
+  }catch(err){ console.error(err); appAlert("Error while exporting:\n"+err.message); }
 }
 function isCanvasBlank(c){ const d=c.getContext("2d").getImageData(0,0,c.width,c.height).data;
   for(let i=3;i<d.length;i+=4){ if(d[i]!==0) return false; } return true; }
@@ -1055,8 +1055,8 @@ function restore(snap){
   }
   updateUndoButtons();
 }
-function undo(){ if(hpos<=0) return; hpos--; restore(history[hpos]); status("Annullato"); }
-function redo(){ if(hpos>=history.length-1) return; hpos++; restore(history[hpos]); status("Ripristinato"); }
+function undo(){ if(hpos<=0) return; hpos--; restore(history[hpos]); status("Undone"); }
+function redo(){ if(hpos>=history.length-1) return; hpos++; restore(history[hpos]); status("Redone"); }
 function updateUndoButtons(){
   const u=$("#btnUndo"), r=$("#btnRedo");
   if(u) u.disabled = !(pages.length && hpos>0);
@@ -1077,37 +1077,37 @@ document.addEventListener("keydown",e=>{
 /* ===== Firma disegnata a mano, salvata in locale (localStorage) ===== */
 const SIG_KEY="pdfeditor_firme";
 function loadSigs(){ try{ return JSON.parse(localStorage.getItem(SIG_KEY)||"[]"); }catch(e){ return []; } }
-function storeSigs(a){ try{ localStorage.setItem(SIG_KEY, JSON.stringify(a)); return true; }catch(e){ appAlert("Memoria piena: impossibile salvare la firma."); return false; } }
+function storeSigs(a){ try{ localStorage.setItem(SIG_KEY, JSON.stringify(a)); return true; }catch(e){ appAlert("Storage full: the signature could not be saved."); return false; } }
 
 $("#btnSign").onclick=()=>{ $("#sigModal").hidden=false; clearSigPad(); renderSigList(); };
 $("#sigClose").onclick=()=>{ $("#sigModal").hidden=true; };
 $("#sigClear").onclick=clearSigPad;
 $("#sigSave").onclick=()=>{
   const data=trimCanvas($("#sigPad"));
-  if(!data){ appAlert("Disegna prima la firma nello spazio bianco."); return; }
+  if(!data){ appAlert("Draw the signature in the white area first."); return; }
   const sigs=loadSigs(); sigs.push(data);
-  if(storeSigs(sigs)){ renderSigList(); clearSigPad(); status("Firma salvata in locale"); }
+  if(storeSigs(sigs)){ renderSigList(); clearSigPad(); status("Signature saved locally"); }
 };
 function clearSigPad(){ const c=$("#sigPad"); c.getContext("2d").clearRect(0,0,c.width,c.height); }
 function renderSigList(){
   const box=$("#sigList"), sigs=loadSigs(); box.innerHTML="";
-  if(!sigs.length){ box.innerHTML='<div class="hint" style="padding:0">Nessuna firma salvata. Disegnane una e premi “Salva firma”.</div>'; return; }
+  if(!sigs.length){ box.innerHTML='<div class="hint" style="padding:0">No saved signatures. Draw one and press “Save signature”.</div>'; return; }
   sigs.forEach((d,i)=>{
     const item=document.createElement("div"); item.className="sigitem";
     const im=document.createElement("img"); im.src=d;
     const bar=document.createElement("div"); bar.className="b";
     const use=document.createElement("button"); use.className="tb"; use.textContent="Usa"; use.onclick=()=>useSig(d);
-    const del=document.createElement("button"); del.className="tb"; del.textContent="🗑"; del.title="Elimina";
+    const del=document.createElement("button"); del.className="tb"; del.textContent="🗑"; del.title="Delete";
     del.onclick=()=>{ const arr=loadSigs(); arr.splice(i,1); storeSigs(arr); renderSigList(); };
     bar.append(use,del); item.append(im,bar); box.appendChild(item);
   });
 }
 function useSig(dataUrl){
-  if(!pages.length){ appAlert("Apri prima un PDF."); return; }
+  if(!pages.length){ appAlert("Open a PDF first."); return; }
   pendingStampData={dataUrl, format:"png"};
   $("#sigModal").hidden=true;
   document.querySelector('[data-tool="image"]').click();  // attiva la modalità inserimento
-  status("Clicca sul punto del PDF dove inserire la firma");
+  status("Click the spot in the PDF where the signature should go");
 }
 // disegno sul pad firma
 (function(){
@@ -1186,7 +1186,7 @@ function regionBg(src, X, Y, W, H){
   }catch(e){ return "#ffffff"; }
 }
 // cancella nel riquadro SOLO i pixel di inchiostro (distanza dallo sfondo, a forma di glifo,
-// stessa logica di makeTextMask del "Modifica testo singolo"): pulito, e non tocca le aree
+// stessa logica di makeTextMask del "Edit single text"): pulito, e non tocca le aree
 // fuori dai glifi (le immagini/forme che non stanno dentro al riquadro stretto del testo restano)
 function eraseTextPixels(dstCtx, src, bbox){
   let X=Math.max(0,Math.round(bbox.x0)-1), Y=Math.max(0,Math.round(bbox.y0)-1);
@@ -1241,21 +1241,21 @@ function lineStrokeRatio(src, b, bg){
   }catch(e){ return 0; }
 }
 async function runOCR(){
-  if(!pages.length){ appAlert("Apri prima un PDF."); return; }
-  const pe=getVisiblePage(), lang=$("#ocrLang").value||"ita";
+  if(!pages.length){ appAlert("Open a PDF first."); return; }
+  const pe=getVisiblePage(), lang=$("#ocrLang").value||"eng";
   const src=pe.el && pe.el.querySelector("canvas.base");
-  if(!src){ appAlert("Pagina non pronta."); return; }
+  if(!src){ appAlert("Page not ready."); return; }
   // se la pagina ha testo reale (PDF digitale) usa il metodo preciso (nuova pagina), non l'OCR
   if(pe.textItems && pe.textItems.length){ await convertAllText(pe); return; }
-  if(typeof Tesseract==="undefined"){ appAlert("Motore OCR non disponibile (lib/tesseract)."); return; }
+  if(typeof Tesseract==="undefined"){ appAlert("OCR engine not available (lib/tesseract)."); return; }
   $("#btnOCR").disabled=true;
   try{
-    status("OCR: preparo il motore…");
+    status("OCR: preparing the engine…");
     const worker=await Tesseract.createWorker(lang, 1, {
       workerPath:"lib/tesseract/worker.min.js", corePath:"lib/tesseract", langPath:"lib/tesseract/lang",
       logger:m=>{ if(m.status==="recognizing text") status("OCR: "+Math.round((m.progress||0)*100)+"%"); }
     });
-    status("OCR: riconoscimento in corso…");
+    status("OCR: recognising…");
     const { data }=await worker.recognize(src, {}, { blocks:true });
     await worker.terminate();
     const lines=[];
@@ -1288,8 +1288,8 @@ async function runOCR(){
     refreshThumbs();
     np.el.scrollIntoView({behavior:"smooth", block:"start"});
     record();
-    status("OCR: creata nuova pagina editabile ("+n+" righe di testo)");
-  }catch(e){ console.error(e); appAlert("Errore OCR:\n"+e.message); status("OCR fallito"); }
+    status("OCR: new editable page created ("+n+" lines of text)");
+  }catch(e){ console.error(e); appAlert("OCR error:\n"+e.message); status("OCR failed"); }
   finally{ $("#btnOCR").disabled=false; }
 }
 

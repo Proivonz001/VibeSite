@@ -38,4 +38,4 @@ Written with Claude Code as a favour for someone who needed to fix a few documen
 
 ## Status
 
-Released. The interface is in Italian for now.
+Released. The hosted version has an English interface; OCR recognises English and Italian, alone or together.

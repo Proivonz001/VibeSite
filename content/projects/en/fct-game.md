@@ -7,6 +7,7 @@ tags: [game, automation, factory]
 status: wip
 engine: Godot 4
 cover: /images/projects/fct-game.svg
+play: /games/fct/index.html
 featured: true
 ---
 
@@ -31,4 +32,4 @@ Designed and coded with Claude Code in Godot 4.7. The design document in the rep
 
 ## Status
 
-Work in progress, not yet published on GitHub. A browser build will appear here once the core loop is complete.
+Work in progress and playable in the browser as an early demo: expect rough edges. The interface is in Italian for now. Not yet published on GitHub.

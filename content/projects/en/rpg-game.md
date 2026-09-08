@@ -7,6 +7,7 @@ tags: [game, roguelite, 3d, stealth]
 status: prototype
 engine: Godot 4
 cover: /images/projects/rpg-game.svg
+play: /games/room-rogue/index.html
 ---
 
 ## What it is
@@ -35,4 +36,4 @@ Every version was built with Claude Code. Keeping the old versions around turned
 
 ## Status
 
-Prototype, local only for now.
+Prototype, playable in the browser as a demo of the current Godot build: one biome, three enemy types, stealth and combat. The interface is in Italian for now.
