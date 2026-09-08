@@ -70,7 +70,7 @@ export default async function HomePage() {
         ) : (
           <div className="max-w-2xl">
             {latestPosts.map((p) => (
-              <PostCard key={p.meta.slug} post={p.meta} locale={locale} />
+              <PostCard key={p.meta.slug} post={p.meta} locale={locale} authorLabel={d.authors[p.meta.author].badge} />
             ))}
           </div>
         )}

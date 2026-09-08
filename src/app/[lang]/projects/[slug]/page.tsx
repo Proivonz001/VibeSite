@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, Gamepad2 } from "lucide-react";
@@ -7,6 +6,7 @@ import { BuildLog } from "@/components/build-log";
 import { Container } from "@/components/container";
 import { GitHubIcon } from "@/components/icons";
 import { GitHubStats } from "@/components/github-stats";
+import { ZoomImage } from "@/components/lightbox";
 import { Markdown } from "@/components/markdown";
 import { InstallSteps, Requirements, SaleBox, ToolList } from "@/components/mcp-details";
 import { statusLabel } from "@/components/project-card";
@@ -111,25 +111,24 @@ export default async function ProjectPage({
 
           {meta.cover && (
             <div className="relative mt-8 aspect-[16/9] overflow-hidden rounded-xl border border-border bg-muted">
-              <Image
+              <ZoomImage
                 src={meta.cover}
-                alt=""
-                fill
+                caption={meta.title}
+                labels={d.lightbox}
                 priority
-                unoptimized={meta.cover.endsWith(".svg")}
                 sizes="(min-width: 1024px) 700px, 100vw"
-                className="object-cover"
+                className="absolute inset-0"
               />
             </div>
           )}
 
           <div className="mt-10">
-            <Markdown source={body} />
+            <Markdown source={body} d={d} />
           </div>
 
           <ToolList tools={meta.tools} d={d} />
           <InstallSteps install={meta.install} d={d} />
-          <ScreenshotGallery items={meta.screenshots ?? []} title={d.projects.screenshots} />
+          <ScreenshotGallery items={meta.screenshots ?? []} title={d.projects.screenshots} labels={d.lightbox} />
           <BuildLog posts={log} locale={locale} d={d} />
         </div>
 

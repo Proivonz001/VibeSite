@@ -37,6 +37,7 @@ export default async function BlogPage() {
                 post={p.meta}
                 locale={locale}
                 projectTitle={p.meta.project ? titleOf.get(p.meta.project) : undefined}
+                authorLabel={d.authors[p.meta.author].badge}
               />
             ),
           }))}

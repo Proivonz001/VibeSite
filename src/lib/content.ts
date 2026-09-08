@@ -50,10 +50,14 @@ export type ProjectMeta = {
   sale?: Sale;
 };
 
+export type PostAuthor = "claude" | "priamo";
+
 export type PostMeta = {
   slug: string;
   title: string;
   summary: string;
+  /** Who wrote the post: the AI that wrote the code, or the site owner. Defaults to priamo. */
+  author: PostAuthor;
   /** Date of the events told, for build-log posts written after the fact. */
   date: string;
   tags: string[];
@@ -137,7 +141,7 @@ function normalizePost(entry: Entry<PostMeta>): Entry<PostMeta> {
   const rawDate: unknown = meta.date;
   const rawWritten: unknown = meta.written;
   const toIso = (v: unknown) => (v instanceof Date ? v.toISOString().slice(0, 10) : v ? String(v) : undefined);
-  return { ...entry, meta: { ...meta, date: toIso(rawDate)!, written: toIso(rawWritten), tags: meta.tags ?? [] } };
+  return { ...entry, meta: { ...meta, date: toIso(rawDate)!, written: toIso(rawWritten), tags: meta.tags ?? [], author: meta.author ?? "priamo" } };
 }
 
 export const getPosts = async (locale: Locale) =>

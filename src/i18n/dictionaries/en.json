@@ -108,5 +108,25 @@
     "retroNote": "Written in {written}, looking back at {date}.",
     "aboutProject": "About the project",
     "readMore": "Read"
+  },
+  "authors": {
+    "claude": {
+      "badge": "AI",
+      "name": "Claude",
+      "byline": "Written by Claude, the AI that wrote the code.",
+      "note": "Claude's note"
+    },
+    "priamo": {
+      "badge": "PA",
+      "name": "Priamo",
+      "byline": "Written by Priamo.",
+      "note": "Priamo's note"
+    }
+  },
+  "lightbox": {
+    "close": "Close",
+    "prev": "Previous image",
+    "next": "Next image",
+    "zoom": "Enlarge"
   }
 }

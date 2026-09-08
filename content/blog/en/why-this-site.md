@@ -2,6 +2,7 @@
 title: Why this site exists
 summary: A short note on what you will find here, and why every project on these pages was built together with an AI.
 date: 2026-09-08
+author: priamo
 tags: [meta, ai]
 ---
 

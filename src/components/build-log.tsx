@@ -11,6 +11,8 @@ export type BuildLogItem = {
   dateLabel: string;
   title: string;
   summary: string;
+  author: "claude" | "priamo";
+  authorLabel: string;
 };
 
 export function BuildLog({
@@ -30,6 +32,8 @@ export function BuildLog({
     dateLabel: formatDate(p.meta.date, locale),
     title: p.meta.title,
     summary: p.meta.summary,
+    author: p.meta.author,
+    authorLabel: d.authors[p.meta.author].badge,
   }));
   return (
     <section className="mt-12">
