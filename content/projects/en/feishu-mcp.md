@@ -4,13 +4,12 @@ summary: An MCP server and real-time bot that let Claude work inside Feishu (Lar
 date: 2026-08-29
 kind: mcp
 tags: [mcp, feishu, lark, typescript, bot]
-repo: Proivonz001/feishu-mcp
 status: released
 engine: TypeScript / Node
 cover: /images/projects/feishu-mcp.svg
 featured: true
 sale:
-  mode: free
+  mode: contact
 requirements:
   - Node.js 18 or newer
   - A Feishu or Lark tenant where you can create a custom app with a bot capability
@@ -40,7 +39,7 @@ tools:
 install:
   - label: Build
     command: |
-      git clone https://github.com/Proivonz001/feishu-mcp.git
+      git clone <repository you receive with the license> feishu-mcp
       cd feishu-mcp
       npm install
       npm run build
@@ -67,4 +66,4 @@ Written with Claude Code in TypeScript on top of the official Feishu SDK. The ha
 
 ## Status
 
-In daily use. Open source under the MIT license.
+In daily use. Licensing is available on request; get in touch for a demo on your own tenant.
