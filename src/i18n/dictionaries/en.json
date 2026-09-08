@@ -58,7 +58,9 @@
     "title": "Blog",
     "intro": "Notes on building with AI: what worked, what did not, and what I learned along the way.",
     "empty": "No posts yet. The first one is on its way.",
-    "backToList": "All posts"
+    "backToList": "All posts",
+    "all": "All posts",
+    "general": "Notes"
   },
   "shop": {
     "title": "Shop",
@@ -94,5 +96,17 @@
     "requirements": "Requirements",
     "copy": "Copy",
     "copied": "Copied"
+  },
+  "buildlog": {
+    "title": "Build log",
+    "intro": "How this project was built, step by step, in the order it happened.",
+    "partOf": "Part {n} of {total} of the {project} build log",
+    "showAll": "Show all {n} steps",
+    "showLess": "Show fewer",
+    "prev": "Previous",
+    "next": "Next",
+    "retroNote": "Written in {written}, looking back at {date}.",
+    "aboutProject": "About the project",
+    "readMore": "Read"
   }
 }

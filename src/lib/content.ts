@@ -54,9 +54,16 @@ export type PostMeta = {
   slug: string;
   title: string;
   summary: string;
+  /** Date of the events told, for build-log posts written after the fact. */
   date: string;
   tags: string[];
   cover?: string;
+  /** Slug of the project this post belongs to (makes it part of that project's build log). */
+  project?: string;
+  /** Position in the project's build log, 1-based. */
+  step?: number;
+  /** ISO date the post was actually written, when different from `date`. */
+  written?: string;
 };
 
 export type Entry<M> = { meta: M; body: string };
@@ -125,8 +132,26 @@ export const getProject = async (locale: Locale, slug: string) => {
   return entry ? normalizeProject(entry) : null;
 };
 
-export const getPosts = (locale: Locale) => readAll<PostMeta>("blog", locale);
-export const getPost = (locale: Locale, slug: string) => readOne<PostMeta>("blog", locale, slug);
+function normalizePost(entry: Entry<PostMeta>): Entry<PostMeta> {
+  const meta = entry.meta;
+  const rawDate: unknown = meta.date;
+  const rawWritten: unknown = meta.written;
+  const toIso = (v: unknown) => (v instanceof Date ? v.toISOString().slice(0, 10) : v ? String(v) : undefined);
+  return { ...entry, meta: { ...meta, date: toIso(rawDate)!, written: toIso(rawWritten), tags: meta.tags ?? [] } };
+}
+
+export const getPosts = async (locale: Locale) =>
+  (await readAll<PostMeta>("blog", locale)).map(normalizePost);
+export const getPost = async (locale: Locale, slug: string) => {
+  const entry = await readOne<PostMeta>("blog", locale, slug);
+  return entry ? normalizePost(entry) : null;
+};
+
+/** Posts of a project's build log, oldest first, ordered by step then date. */
+export async function getBuildLog(locale: Locale, projectSlug: string) {
+  const posts = (await getPosts(locale)).filter((p) => p.meta.project === projectSlug);
+  return posts.sort((a, b) => (a.meta.step ?? 0) - (b.meta.step ?? 0) || (a.meta.date < b.meta.date ? -1 : 1));
+}
 
 export function formatDate(iso: string | Date, locale: Locale): string {
   return new Date(iso).toLocaleDateString(locale === "it" ? "it-IT" : "en-GB", {

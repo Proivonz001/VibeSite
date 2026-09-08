@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink, Gamepad2 } from "lucide-react";
+import { BuildLog } from "@/components/build-log";
 import { Container } from "@/components/container";
 import { GitHubIcon } from "@/components/icons";
 import { GitHubStats } from "@/components/github-stats";
@@ -13,7 +14,7 @@ import { ScreenshotGallery } from "@/components/screenshot-gallery";
 import { Tag } from "@/components/tag";
 import { enabledLocales, localePath } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/dictionaries";
-import { formatDate, getProject, getProjects } from "@/lib/content";
+import { formatDate, getBuildLog, getProject, getProjects } from "@/lib/content";
 
 export async function generateStaticParams() {
   const params: { lang: string; slug: string }[] = [];
@@ -47,6 +48,7 @@ export default async function ProjectPage({
   const project = await getProject(locale, slug);
   if (!project) notFound();
   const { meta, body } = project;
+  const log = await getBuildLog(locale, meta.slug);
 
   return (
     <Container>
@@ -128,6 +130,7 @@ export default async function ProjectPage({
           <ToolList tools={meta.tools} d={d} />
           <InstallSteps install={meta.install} d={d} />
           <ScreenshotGallery items={meta.screenshots ?? []} title={d.projects.screenshots} />
+          <BuildLog posts={log} locale={locale} d={d} />
         </div>
 
         <aside className="space-y-6 lg:pt-2">

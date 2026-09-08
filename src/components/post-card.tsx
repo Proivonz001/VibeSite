@@ -1,15 +1,31 @@
 import Link from "next/link";
+import { Hammer } from "lucide-react";
 import { Tag } from "./tag";
 import { localePath, type Locale } from "@/i18n/config";
 import { formatDate, type PostMeta } from "@/lib/content";
 
-export function PostCard({ post, locale }: { post: PostMeta; locale: Locale }) {
+export function PostCard({
+  post,
+  locale,
+  projectTitle,
+}: {
+  post: PostMeta;
+  locale: Locale;
+  projectTitle?: string;
+}) {
   const href = localePath(locale, `/blog/${post.slug}`);
   return (
     <article className="flex flex-col gap-2 border-b border-border py-6 first:pt-0">
-      <time dateTime={post.date} className="text-xs text-muted-foreground">
-        {formatDate(post.date, locale)}
-      </time>
+      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+        <time dateTime={post.date}>{formatDate(post.date, locale)}</time>
+        {projectTitle && (
+          <span className="inline-flex items-center gap-1 text-accent">
+            <Hammer className="size-3" />
+            {projectTitle}
+            {post.step ? ` · ${post.step}` : ""}
+          </span>
+        )}
+      </div>
       <h3 className="text-xl font-semibold leading-tight">
         <Link href={href} className="hover:text-accent">
           {post.title}
