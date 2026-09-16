@@ -53,6 +53,8 @@ export function Lightbox({
 
   return (
     <>
+      {/* `open` only reads the ref inside an event handler; the rule cannot see that through the render prop. */}
+      {/* eslint-disable-next-line react-hooks/refs */}
       {children(open)}
       <dialog
         ref={dialogRef}
@@ -133,6 +135,7 @@ export function ZoomImage({
   className,
   sizes,
   priority,
+  fit = "cover",
 }: {
   src: string;
   alt?: string;
@@ -141,6 +144,8 @@ export function ZoomImage({
   className?: string;
   sizes?: string;
   priority?: boolean;
+  /** "contain" keeps the whole image visible (post images of any shape). */
+  fit?: "cover" | "contain";
 }) {
   return (
     <Lightbox images={[{ src, alt, caption }]} labels={labels}>
@@ -158,7 +163,7 @@ export function ZoomImage({
             priority={priority}
             unoptimized={src.endsWith(".svg")}
             sizes={sizes ?? "100vw"}
-            className="object-cover transition group-hover:opacity-95"
+            className={(fit === "contain" ? "object-contain" : "object-cover") + " transition group-hover:opacity-95"}
           />
         </button>
       )}

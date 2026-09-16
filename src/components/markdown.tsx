@@ -1,6 +1,6 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
-import type { ReactNode } from "react";
+import { Children, isValidElement, type ReactNode } from "react";
 import { SideNote } from "./side-note";
 import { ZoomImage, type LightboxLabels } from "./lightbox";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -18,11 +18,21 @@ export function Markdown({ source, d }: { source: string; d: Dictionary }) {
         {children}
       </SideNote>
     ),
+    // A paragraph that only holds an image is unwrapped: the lightbox renders a
+    // <dialog>, which is not allowed inside <p> and would break hydration.
+    p: ({ children }: { children?: ReactNode }) => {
+      const items = Children.toArray(children);
+      const only = items.length === 1 ? items[0] : null;
+      if (only && isValidElement(only) && typeof (only.props as { src?: unknown }).src === "string") {
+        return <>{children}</>;
+      }
+      return <p>{children}</p>;
+    },
     img: ({ src, alt }: { src?: string; alt?: string }) =>
       src ? (
         <span className="not-prose my-6 block">
-          <span className="relative block aspect-[16/9] overflow-hidden rounded-xl border border-border bg-muted">
-            <ZoomImage src={src} alt={alt} caption={alt} labels={labels} sizes="(min-width: 1024px) 700px, 100vw" />
+          <span className="relative block aspect-[16/10] overflow-hidden rounded-xl border border-border bg-muted">
+            <ZoomImage src={src} alt={alt} caption={alt} labels={labels} fit="contain" sizes="(min-width: 1024px) 700px, 100vw" />
           </span>
           {alt && <span className="mt-2 block text-center text-sm text-muted-foreground">{alt}</span>}
         </span>
