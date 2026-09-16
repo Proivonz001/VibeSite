@@ -89,7 +89,7 @@ export default async function ProjectPage({
               <a
                 href={meta.demo}
                 target="_blank"
-                rel="noreferrer"
+                rel={meta.demoRel ? `${meta.demoRel} noreferrer` : "noreferrer"}
                 className="inline-flex items-center gap-2 rounded-md border border-border px-4 py-2 text-sm font-medium hover:bg-muted"
               >
                 <ExternalLink className="size-4" />

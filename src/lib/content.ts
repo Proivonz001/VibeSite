@@ -37,6 +37,8 @@ export type ProjectMeta = {
   play?: string;
   /** External live demo URL. */
   demo?: string;
+  /** Extra rel tokens for the demo link, e.g. "me" for an identity link. */
+  demoRel?: string;
   /** Engine or main technology, shown as a badge. */
   engine?: string;
   featured?: boolean;
