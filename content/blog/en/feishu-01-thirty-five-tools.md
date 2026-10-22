@@ -39,4 +39,4 @@ What made this project different from a generic connector is that it grew inside
 
 Two platform behaviours cost real time and are documented so nobody rediscovers them. Permission scopes take effect only after a new app version is published and approved by the tenant admin, which is the source of most permission errors. And group history can be read only with a specific scope, while the bot receives group messages in real time only when it is mentioned.
 
-The public repository contains the server and the bot, the generic scripts and an example environment file. The client-specific scripts and the tenant's identifiers stayed out, which is why the version on this site is the tool and not the workflow. The workflow is the part you would license.
+The repository you receive with the license contains the server and the bot, the generic scripts and an example environment file. The client-specific scripts and the tenant's identifiers stayed out.

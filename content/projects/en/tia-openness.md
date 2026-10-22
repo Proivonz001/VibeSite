@@ -37,7 +37,7 @@ tools:
   - name: sim-*
     description: Drive a virtual S7-1500 in PLCSIM Advanced for headless simulation, when installed.
 install:
-  - label: Claude Code plugin
+  - label: Claude Code plugin (with the access you receive with the license)
     command: |
       /plugin marketplace add Proivonz001/tia-openness-engine
       /plugin install tia-openness@tia-openness-engine

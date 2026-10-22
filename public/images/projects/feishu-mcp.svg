@@ -18,7 +18,7 @@
   <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="20">
     <g transform="translate(80 70)">
       <rect width="380" height="72" rx="18" fill="#1b2d5e" stroke="#2d4a8f"/>
-      <text x="24" y="30" fill="#c7d2fe" font-size="15">橘 · 10:42</text>
+      <text x="24" y="30" fill="#c7d2fe" font-size="15">小王 · 10:42</text>
       <text x="24" y="56" fill="#ffffff">读一下这篇文档并总结</text>
     </g>
     <g transform="translate(140 160)">
@@ -39,13 +39,13 @@
     <rect width="500" height="250" rx="14" fill="#0e1c3f" stroke="#2d4a8f"/>
     <rect width="500" height="44" rx="14" fill="#1b2d5e"/>
     <rect y="30" width="500" height="14" fill="#1b2d5e"/>
-    <text x="20" y="29" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#c7d2fe" letter-spacing="1">君君｜选题库 · Bitable</text>
+    <text x="20" y="29" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="16" fill="#c7d2fe" letter-spacing="1">示例团队｜选题库 · Bitable</text>
     <g font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15" fill="#e2e8f0">
       <g stroke="#243a6e"><line x1="0" y1="90" x2="500" y2="90"/><line x1="0" y1="136" x2="500" y2="136"/><line x1="0" y1="182" x2="500" y2="182"/><line x1="170" y1="44" x2="170" y2="250"/><line x1="330" y1="44" x2="330" y2="250"/></g>
       <text x="20" y="72" fill="#94a3b8">选题</text><text x="190" y="72" fill="#94a3b8">状态</text><text x="350" y="72" fill="#94a3b8">发布日</text>
-      <text x="20" y="118">问题肌管理</text><rect x="190" y="101" width="72" height="24" rx="12" fill="#22c55e" fill-opacity="0.25"/><text x="204" y="118" fill="#86efac">已发布</text><text x="350" y="118">09-02</text>
-      <text x="20" y="164">秋季护肤</text><rect x="190" y="147" width="72" height="24" rx="12" fill="#f59e0b" fill-opacity="0.25"/><text x="204" y="164" fill="#fcd34d">进行中</text><text x="350" y="164">09-10</text>
-      <text x="20" y="210">直播复盘</text><rect x="190" y="193" width="72" height="24" rx="12" fill="#3370ff" fill-opacity="0.35"/><text x="204" y="210" fill="#bfdbfe">待办</text><text x="350" y="210">—</text>
+      <text x="20" y="118">产品发布</text><rect x="190" y="101" width="72" height="24" rx="12" fill="#22c55e" fill-opacity="0.25"/><text x="204" y="118" fill="#86efac">已发布</text><text x="350" y="118">09-02</text>
+      <text x="20" y="164">用户访谈</text><rect x="190" y="147" width="72" height="24" rx="12" fill="#f59e0b" fill-opacity="0.25"/><text x="204" y="164" fill="#fcd34d">进行中</text><text x="350" y="164">09-10</text>
+      <text x="20" y="210">季度复盘</text><rect x="190" y="193" width="72" height="24" rx="12" fill="#3370ff" fill-opacity="0.35"/><text x="204" y="210" fill="#bfdbfe">待办</text><text x="350" y="210">—</text>
     </g>
   </g>
 

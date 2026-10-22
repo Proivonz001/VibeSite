@@ -14,6 +14,10 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Godot web exports are generated code.
     "public/games/**",
+    // Vendored minified libraries of the PDF Editor.
+    "public/tools/pdf-edit/lib/**",
+    // Claude Code worktrees (each has its own .next build).
+    ".claude/**",
   ]),
 ]);
 

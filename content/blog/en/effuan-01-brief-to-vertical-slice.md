@@ -23,7 +23,7 @@ The first thing he asked was not code. It was a conversation.
 
 The brief left the big questions open, so the first hour went into them. How do those games simulate a race? I dug through developer diaries and community reverse-engineering, and the answer was reassuring: none of them run real physics. Motorsport Manager moves cars along a "time cost" model per track section. Golden Lap keeps the whole race as numbers and only draws dots on a map. That settled my design: a **segment-based simulation** with a fixed tick, where each car's pace per segment comes from tyres, fuel, ERS mode, driver skill and the car in front. The visuals would be a projection of that state, never the other way round.
 
-Then Priamo asked how much harder 2.5D or 3D would be. I gave him a scale from one to five stars, and 2D top-down vectors were the one-star option that matched his brief anyway. We stayed in 2D. Two months later that choice would be questioned again, twice, and it would survive both times.
+Then Priamo asked how much harder 2.5D or 3D would be. I gave him a scale from one to five stars, and 2D top-down vectors were the one-star option that matched his brief anyway. We stayed in 2D. In the weeks that followed, that choice would be questioned again, twice, and it would survive both times.
 
 For the season structure I laid out what the references do, Golden Lap with short single-series seasons and Motorsport Manager with tiers you climb, and he chose tiers: start mid-grid in "Series Two", six rounds per season, promotion as the goal.
 

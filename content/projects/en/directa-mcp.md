@@ -47,10 +47,14 @@ tools:
     description: The hard-coded safety limits the server enforces on orders.
   - name: place_order
     description: Prepare a limit or market order. Disabled unless trading is explicitly enabled, and always requires a preview and a second confirmation call.
+  - name: confirm_order
+    description: Confirm an order that Darwin holds back for confirmation. Disabled unless trading is enabled, and always requires a preview and a second confirmation call.
   - name: modify_order
     description: Change the price of an open order. Same safeguards as place_order.
   - name: cancel_order
-    description: Cancel one order. Same safeguards as place_order.
+    description: Cancel one order. Disabled unless trading is enabled, and always requires a preview and a second confirmation call.
+  - name: cancel_all
+    description: Cancel every open order on a ticker (stop orders excluded). Disabled unless trading is enabled, and always requires a preview and a second confirmation call.
 install:
   - label: Claude Code
     command: claude mcp add --scope user directa -e DIRECTA_ENABLE_TRADING=false -- python C:\path\to\directa-mcp\server.py
